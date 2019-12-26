@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
+    <generated>
+      <config projectName="LLVMLan" targetName="LLVMLan" />
+    </generated>
+  </component>
+  <component name="CMakeSettings">
+    <configurations>
+      <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" />
+    </configurations>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="e028706c-8d45-40d8-ac01-1fb77a4ef753" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
+  <component name="ProjectId" id="1VHWv0PTDjThULcd1F1uunKTPgc" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="settings.editor.selected.configurable" value="CPPToolchains" />
+  </component>
+  <component name="RunManager">
+    <configuration name="LLVMLan" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="LLVMLan" TARGET_NAME="LLVMLan" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="LLVMLan" RUN_TARGET_NAME="LLVMLan">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e028706c-8d45-40d8-ac01-1fb77a4ef753" name="Default Changelist" comment="" />
+      <created>1576910727989</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1576910727989</updated>
+      <workItem from="1576910731948" duration="3884000" />
+      <workItem from="1577023505903" duration="816000" />
+      <workItem from="1577024361974" duration="1402000" />
+      <workItem from="1577063597171" duration="3477000" />
+      <workItem from="1577084539776" duration="12475000" />
+      <workItem from="1577162685276" duration="7621000" />
+      <workItem from="1577255384615" duration="5505000" />
+      <workItem from="1577270610292" duration="7085000" />
+      <workItem from="1577348883630" duration="17207000" />
+      <workItem from="1577374740763" duration="240000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="540" y="207" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1577357482659">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="540" y="207" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1577357482659" />
+    <state x="596" y="226" key="#com.intellij.execution.impl.EditConfigurationsDialog/78.23.1842.1057@78.23.1842.1057" timestamp="1577067641246" />
+    <state x="553" y="203" key="SettingsEditor" timestamp="1577357443591">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="553" y="203" key="SettingsEditor/0.0.1920.1080@0.0.1920.1080" timestamp="1577357443591" />
+    <state x="609" y="222" key="SettingsEditor/78.23.1842.1057@78.23.1842.1057" timestamp="1577067626609" />
+    <state x="692" y="383" key="com.intellij.ide.util.TipDialog" timestamp="1577374741571">
+      <screen x="78" y="23" width="1842" height="1057" />
+    </state>
+    <state x="640" y="368" key="com.intellij.ide.util.TipDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1577348884194" />
+    <state x="692" y="383" key="com.intellij.ide.util.TipDialog/78.23.1842.1057@78.23.1842.1057" timestamp="1577374741571" />
+    <state x="953" y="224" key="refactoring.ChangeSignatureDialog" timestamp="1577170309197">
+      <screen x="78" y="23" width="1842" height="1057" />
+    </state>
+    <state x="953" y="224" key="refactoring.ChangeSignatureDialog/78.23.1842.1057@78.23.1842.1057" timestamp="1577170309197" />
+  </component>
+</project>
