@@ -57,27 +57,27 @@ include CMakeFiles/LLVMLan.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/LLVMLan.dir/flags.make
 
-CMakeFiles/LLVMLan.dir/main.cpp.o: CMakeFiles/LLVMLan.dir/flags.make
-CMakeFiles/LLVMLan.dir/main.cpp.o: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/popo/CLionProjects/LLVMLan/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/LLVMLan.dir/main.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/LLVMLan.dir/main.cpp.o -c /Users/popo/CLionProjects/LLVMLan/main.cpp
+CMakeFiles/LLVMLan.dir/src/main.cpp.o: CMakeFiles/LLVMLan.dir/flags.make
+CMakeFiles/LLVMLan.dir/src/main.cpp.o: ../src/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/popo/CLionProjects/LLVMLan/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/LLVMLan.dir/src/main.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/LLVMLan.dir/src/main.cpp.o -c /Users/popo/CLionProjects/LLVMLan/src/main.cpp
 
-CMakeFiles/LLVMLan.dir/main.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/LLVMLan.dir/main.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/popo/CLionProjects/LLVMLan/main.cpp > CMakeFiles/LLVMLan.dir/main.cpp.i
+CMakeFiles/LLVMLan.dir/src/main.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/LLVMLan.dir/src/main.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/popo/CLionProjects/LLVMLan/src/main.cpp > CMakeFiles/LLVMLan.dir/src/main.cpp.i
 
-CMakeFiles/LLVMLan.dir/main.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/LLVMLan.dir/main.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/popo/CLionProjects/LLVMLan/main.cpp -o CMakeFiles/LLVMLan.dir/main.cpp.s
+CMakeFiles/LLVMLan.dir/src/main.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/LLVMLan.dir/src/main.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/popo/CLionProjects/LLVMLan/src/main.cpp -o CMakeFiles/LLVMLan.dir/src/main.cpp.s
 
 # Object files for target LLVMLan
 LLVMLan_OBJECTS = \
-"CMakeFiles/LLVMLan.dir/main.cpp.o"
+"CMakeFiles/LLVMLan.dir/src/main.cpp.o"
 
 # External object files for target LLVMLan
 LLVMLan_EXTERNAL_OBJECTS =
 
-LLVMLan: CMakeFiles/LLVMLan.dir/main.cpp.o
+LLVMLan: CMakeFiles/LLVMLan.dir/src/main.cpp.o
 LLVMLan: CMakeFiles/LLVMLan.dir/build.make
 LLVMLan: CMakeFiles/LLVMLan.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/popo/CLionProjects/LLVMLan/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable LLVMLan"

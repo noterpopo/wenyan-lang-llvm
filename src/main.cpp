@@ -5,7 +5,7 @@
 //  Created by 梁仕钢 on 2019/12/20.
 //  Copyright © 2019 梁仕钢. All rights reserved.
 //
-#include "include/KaleidoscopeJIT.h"
+#include "../include/KaleidoscopeJIT.h"
 #include "llvm/ADT/APFloat.h"
 #include "llvm/ADT/STLExtras.h"
 #include "llvm/IR/BasicBlock.h"

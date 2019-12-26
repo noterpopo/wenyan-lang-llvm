@@ -15,4 +15,4 @@ set(LLVM_LINK_COMPONENTS
         Support
         native
         )
-add_executable(LLVMLan main.cpp)
+add_executable(LLVMLan src/main.cpp)

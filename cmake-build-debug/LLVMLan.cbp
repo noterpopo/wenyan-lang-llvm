@@ -80,7 +80,7 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/Users/popo/CLionProjects/LLVMLan/main.cpp">
+		<Unit filename="/Users/popo/CLionProjects/LLVMLan/src/main.cpp">
 			<Option target="LLVMLan"/>
 		</Unit>
 		<Unit filename="/Users/popo/CLionProjects/LLVMLan/CMakeLists.txt">

@@ -1,5 +1,5 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/LLVMLan.dir/main.cpp.o"
+  "CMakeFiles/LLVMLan.dir/src/main.cpp.o"
   "LLVMLan"
   "LLVMLan.pdb"
 )
