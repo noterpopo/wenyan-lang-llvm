@@ -44,6 +44,12 @@
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add option="-D__STDC_CONSTANT_MACROS"/>
+					<Add option="-D__STDC_FORMAT_MACROS"/>
+					<Add option="-D__STDC_LIMIT_MACROS"/>
+					<Add directory="/usr/local/Cellar/llvm/9.0.0_1/include"/>
+					<Add directory="/Users/popo/CLionProjects/LLVMLan/-std=c++11"/>
+					<Add directory="/Users/popo/CLionProjects/LLVMLan/-stdlib=libc++"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
 					<Add directory="/usr/local/include"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/11.0.0/include"/>
@@ -65,6 +71,12 @@
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add option="-D__STDC_CONSTANT_MACROS"/>
+					<Add option="-D__STDC_FORMAT_MACROS"/>
+					<Add option="-D__STDC_LIMIT_MACROS"/>
+					<Add directory="/usr/local/Cellar/llvm/9.0.0_1/include"/>
+					<Add directory="/Users/popo/CLionProjects/LLVMLan/-std=c++11"/>
+					<Add directory="/Users/popo/CLionProjects/LLVMLan/-stdlib=libc++"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
 					<Add directory="/usr/local/include"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/11.0.0/include"/>

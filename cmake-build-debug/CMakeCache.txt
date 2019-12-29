@@ -212,6 +212,18 @@ CMAKE_STRIP:FILEPATH=/Applications/Xcode.app/Contents/Developer/Toolchains/Xcode
 // Studio IDE projects all commands are done without /nologo.
 CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
 
+//Path to a library.
+CURSES_CURSES_LIBRARY:FILEPATH=/usr/lib/libcurses.dylib
+
+//Path to a library.
+CURSES_FORM_LIBRARY:FILEPATH=/usr/lib/libform.dylib
+
+//Path to a file.
+CURSES_INCLUDE_PATH:PATH=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/include
+
+//Path to a library.
+CURSES_NCURSES_LIBRARY:FILEPATH=/usr/lib/libncurses.dylib
+
 //Value Computed by CMake
 LLVMLan_BINARY_DIR:STATIC=/Users/popo/CLionProjects/LLVMLan/cmake-build-debug
 
@@ -361,6 +373,16 @@ CMAKE_STRIP-ADVANCED:INTERNAL=1
 CMAKE_UNAME:INTERNAL=/usr/bin/uname
 //ADVANCED property for variable: CMAKE_VERBOSE_MAKEFILE
 CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CURSES_CURSES_LIBRARY
+CURSES_CURSES_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CURSES_FORM_LIBRARY
+CURSES_FORM_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CURSES_INCLUDE_PATH
+CURSES_INCLUDE_PATH-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CURSES_NCURSES_LIBRARY
+CURSES_NCURSES_LIBRARY-ADVANCED:INTERNAL=1
+//Details about finding Curses
+FIND_PACKAGE_MESSAGE_DETAILS_Curses:INTERNAL=[/usr/lib/libcurses.dylib][/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/usr/include][v()]
 //ADVANCED property for variable: ProcessorCount_cmd_sysctl
 ProcessorCount_cmd_sysctl-ADVANCED:INTERNAL=1
 

@@ -11,7 +11,27 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e028706c-8d45-40d8-ac01-1fb77a4ef753" name="Default Changelist" comment="" />
+    <list default="true" id="e028706c-8d45-40d8-ac01-1fb77a4ef753" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/LLVMLan.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/LLVMLan.dir/CXX.includecache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/LLVMLan.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/LLVMLan.dir/DependInfo.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/LLVMLan.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/LLVMLan.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/LLVMLan.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/LLVMLan.dir/depend.internal" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/LLVMLan.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/LLVMLan.dir/depend.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/LLVMLan.dir/flags.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/LLVMLan.dir/flags.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/LLVMLan.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/LLVMLan.dir/link.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/LLVMLan.dir/main.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Progress/1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Progress/2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Progress/count.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/LLVMLan.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/LLVMLan.cbp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.cpp" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -21,7 +41,11 @@
     <option name="formatViaClangd" value="false" />
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1VHWv0PTDjThULcd1F1uunKTPgc" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -29,6 +53,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -37,6 +62,11 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="settings.editor.selected.configurable" value="CPPToolchains" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="LLVMLan" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="LLVMLan" TARGET_NAME="LLVMLan" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="LLVMLan" RUN_TARGET_NAME="LLVMLan">
@@ -77,6 +107,12 @@
       <workItem from="1577270610292" duration="7085000" />
       <workItem from="1577348883630" duration="17207000" />
       <workItem from="1577374740763" duration="240000" />
+      <workItem from="1577375006703" duration="476000" />
+      <workItem from="1577427038121" duration="10701000" />
+      <workItem from="1577455751504" duration="3365000" />
+      <workItem from="1577503866783" duration="2309000" />
+      <workItem from="1577516962902" duration="11823000" />
+      <workItem from="1577593172100" duration="4866000" />
     </task>
     <servers />
   </component>
@@ -89,19 +125,83 @@
     </state>
     <state x="540" y="207" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1577357482659" />
     <state x="596" y="226" key="#com.intellij.execution.impl.EditConfigurationsDialog/78.23.1842.1057@78.23.1842.1057" timestamp="1577067641246" />
+    <state x="166" y="264" width="762" height="579" key="#xdebugger.evaluate" timestamp="1577601660475">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="166" y="264" width="762" height="579" key="#xdebugger.evaluate/0.0.1920.1080@0.0.1920.1080" timestamp="1577601660475" />
+    <state x="719" y="195" key="CommitChangelistDialog2" timestamp="1577519988475">
+      <screen x="78" y="23" width="1842" height="1057" />
+    </state>
+    <state x="719" y="195" key="CommitChangelistDialog2/78.23.1842.1057@78.23.1842.1057" timestamp="1577519988475" />
+    <state width="721" height="466" key="DebuggerActiveHint" timestamp="1577604178378">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="721" height="466" key="DebuggerActiveHint/0.0.1920.1080@0.0.1920.1080" timestamp="1577604178378" />
+    <state x="372" y="161" key="DiffContextDialog" timestamp="1577519986896">
+      <screen x="78" y="23" width="1842" height="1057" />
+    </state>
+    <state x="372" y="161" key="DiffContextDialog/78.23.1842.1057@78.23.1842.1057" timestamp="1577519986896" />
+    <state width="908" height="304" key="GridCell.Tab.0.bottom" timestamp="1577604307739">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="908" height="304" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1577604307739" />
+    <state width="908" height="304" key="GridCell.Tab.0.center" timestamp="1577604307739">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="908" height="304" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1577604307739" />
+    <state width="908" height="304" key="GridCell.Tab.0.left" timestamp="1577604307738">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="908" height="304" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1577604307738" />
+    <state width="908" height="304" key="GridCell.Tab.0.right" timestamp="1577604307739">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="908" height="304" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1577604307739" />
+    <state width="908" height="375" key="GridCell.Tab.1.bottom" timestamp="1577604287381">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="908" height="375" key="GridCell.Tab.1.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1577604287381" />
+    <state width="908" height="375" key="GridCell.Tab.1.center" timestamp="1577604287380">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="908" height="375" key="GridCell.Tab.1.center/0.0.1920.1080@0.0.1920.1080" timestamp="1577604287380" />
+    <state width="908" height="375" key="GridCell.Tab.1.left" timestamp="1577604287379">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="908" height="375" key="GridCell.Tab.1.left/0.0.1920.1080@0.0.1920.1080" timestamp="1577604287379" />
+    <state width="908" height="375" key="GridCell.Tab.1.right" timestamp="1577604287380">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state width="908" height="375" key="GridCell.Tab.1.right/0.0.1920.1080@0.0.1920.1080" timestamp="1577604287380" />
     <state x="553" y="203" key="SettingsEditor" timestamp="1577357443591">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="553" y="203" key="SettingsEditor/0.0.1920.1080@0.0.1920.1080" timestamp="1577357443591" />
     <state x="609" y="222" key="SettingsEditor/78.23.1842.1057@78.23.1842.1057" timestamp="1577067626609" />
-    <state x="692" y="383" key="com.intellij.ide.util.TipDialog" timestamp="1577374741571">
+    <state x="692" y="383" key="com.intellij.ide.util.TipDialog" timestamp="1577593173358">
       <screen x="78" y="23" width="1842" height="1057" />
     </state>
     <state x="640" y="368" key="com.intellij.ide.util.TipDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1577348884194" />
-    <state x="692" y="383" key="com.intellij.ide.util.TipDialog/78.23.1842.1057@78.23.1842.1057" timestamp="1577374741571" />
+    <state x="692" y="383" key="com.intellij.ide.util.TipDialog/78.23.1842.1057@78.23.1842.1057" timestamp="1577593173358" />
     <state x="953" y="224" key="refactoring.ChangeSignatureDialog" timestamp="1577170309197">
       <screen x="78" y="23" width="1842" height="1057" />
     </state>
     <state x="953" y="224" key="refactoring.ChangeSignatureDialog/78.23.1842.1057@78.23.1842.1057" timestamp="1577170309197" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/src/main.cpp</url>
+          <line>884</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/src/main.cpp</url>
+          <line>780</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

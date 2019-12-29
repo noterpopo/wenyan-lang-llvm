@@ -188,10 +188,9 @@ public:
 };
 class VarExprAST:public ExprAST {
     std::vector<std::pair<std::string,std::unique_ptr<ExprAST>>> varNames;
-    std::unique_ptr<ExprAST> body;
 public:
-    VarExprAST(std::vector<std::pair<std::string,std::unique_ptr<ExprAST>>> varNames,std::unique_ptr<ExprAST> body)
-    :varNames(std::move(varNames)),body(std::move(body)){}
+    VarExprAST(std::vector<std::pair<std::string,std::unique_ptr<ExprAST>>> varNames)
+    :varNames(std::move(varNames)){}
     Value *codeGen() override ;
 
 };
@@ -421,13 +420,7 @@ static std::unique_ptr<ExprAST> parseVarExpr() {
         if(curTok!=tok_identifier)
             return logError("excepted identifier list after var");
     }
-    if(curTok!=tok_in)
-        return logError("excepted 'in' keyword after 'var'");
-    getNextTok();
-    auto body = parseExpression();
-    if(!body)
-        return nullptr;
-    return llvm::make_unique<VarExprAST>(std::move(varNames),std::move(body));
+    return llvm::make_unique<VarExprAST>(std::move(varNames));
 }
 static std::unique_ptr<ExprAST> parsePrimary(){
     switch (curTok) {
@@ -577,6 +570,7 @@ static std::unique_ptr<PrototypeAST> parseExtern() {
 static LLVMContext context;
 static IRBuilder<> builder(context);
 static std::unique_ptr<Module> module;
+static std::unique_ptr<Module> globalVarModule  = llvm::make_unique<Module>("llvmGV",context);;
 static std::map<std::string,AllocaInst *> namedValues;
 static std::unique_ptr<legacy::FunctionPassManager> fpm;
 static std::unique_ptr<KaleidoscopeJIT> jit;
@@ -605,7 +599,11 @@ Value *NumberExprAST::codeGen() {
 Value *VariableExprAST::codeGen() {
     Value *v = namedValues[name];
     if(!v){
-        return logErrorV("Unknown variable name");
+        GlobalVariable *gv = globalVarModule->getGlobalVariable(name);
+        if(!gv){
+            return logErrorV("can not find the variable");
+        }
+        return builder.CreateLoad(gv);
     }
     return builder.CreateLoad(v,name.c_str());
 }
@@ -761,7 +759,6 @@ Value *ForExprAST::codeGen() {
 }
 
 Value *VarExprAST::codeGen() {
-    std::vector<AllocaInst*> oldBindings;
     Function *theFunction = builder.GetInsertBlock()->getParent();
     for (unsigned i =0,e= varNames.size();i!=e;++i){
         const std::string &varName = varNames[i].first;
@@ -775,18 +772,23 @@ Value *VarExprAST::codeGen() {
             initVal = ConstantFP::get(context,APFloat(0.0));
         }
 
-        AllocaInst *alloca = CreateEntryBlockAlloca(theFunction,varName);
-        builder.CreateStore(initVal,alloca);
-        oldBindings.push_back(namedValues[varName]);
-        namedValues[varName] = alloca;
+        if(namedValues.size()==0){
+            fprintf(stderr, "Parsed an top.---9\n");
+            globalVarModule->getOrInsertGlobal(varName, builder.getDoubleTy());
+            GlobalVariable *gVar = globalVarModule->getNamedGlobal(varName);
+            gVar->setLinkage(GlobalValue::CommonLinkage);
+            gVar->setAlignment(8);
+            builder.CreateStore(initVal,gVar, true);
+            return initVal;
+        } else {
+            AllocaInst *alloca = CreateEntryBlockAlloca(theFunction,varName);
+            builder.CreateStore(initVal,alloca);
+            namedValues[varName] = alloca;
+            return initVal;
+        }
+
     }
-    Value *bodyV = body->codeGen();
-    if(!bodyV)
-        return nullptr;
-    for(unsigned i =0,e=varNames.size();i!=e;++i){
-        namedValues[varNames[i].first] = oldBindings[i];
-    }
-    return bodyV;
+    return nullptr;
 }
 Function *PrototypeAST::codeGen() {
     std::vector<Type *> doubles(args.size(),Type::getDoubleTy(context));
@@ -799,22 +801,28 @@ Function *PrototypeAST::codeGen() {
 }
 
 Function *FunctionAST::codeGen() {
+    fprintf(stderr, "Parsed an top.---4\n");
     auto &p = *proto;
     functionProtos[proto->getName()] = std::move(proto);
     Function *theFunction = getFunction(p.getName());
+    fprintf(stderr, "Parsed an top.---5\n");
     if(!theFunction)
         return nullptr;
+    fprintf(stderr, "Parsed an top.---6\n");
     if(p.isBinaryOp())
         binopPrecedence[p.getOperatorName()] = p.getBinaryPrecedence();
     BasicBlock *bb = BasicBlock::Create(context,"entry",theFunction);
     builder.SetInsertPoint(bb);
     namedValues.clear();
+    fprintf(stderr, "Parsed an top.---7\n");
     for(auto &arg:theFunction->args()){
         AllocaInst *alloca = CreateEntryBlockAlloca(theFunction,arg.getName());
         builder.CreateStore(&arg,alloca);
         namedValues[arg.getName()] = alloca;
     }
+    fprintf(stderr, "Parsed an top.---8\n");
     if(Value *retVal = body->codeGen()){
+        fprintf(stderr, "Parsed an top.---10\n");
         builder.CreateRet(retVal);
         verifyFunction(*theFunction);
         fpm->run(*theFunction);
@@ -863,14 +871,19 @@ static void handleExtern(){
     }
 }
 static void handleTopLevelExpression(){
+    fprintf(stderr, "Parsed an top.---1\n");
     if(auto fnAST = parseTopLevelExpr()){
+        fprintf(stderr, "Parsed an top.---2\n");
         auto fnName = (fnAST->getProto()->get())->getName();
-        if(fnAST->codeGen()){
+        if(auto fnIR = fnAST->codeGen()){
+            fnIR->print(errs());
             auto h = jit->addModule(std::move(module));
             initializeModuleAndpassManager();
             auto exprSymbol = jit->findSymbol(fnName);
             assert(exprSymbol && "Function not found");
-            double (*fp)() = (double (*)())(intptr_t)cantFail(exprSymbol.getAddress());
+            fprintf(stderr, "Parsed an top.---11\n");
+            double (*fp)() = (decltype(fp))cantFail(exprSymbol.getAddress());
+            fprintf(stderr, "Parsed an top.---12\n");
             fprintf(stderr,"Evaluated to %f\n",fp());
 
             jit->removeModule(h);
@@ -949,5 +962,7 @@ int main() {
     initializeModuleAndpassManager();
 
     mainLoop();
+    globalVarModule->print(errs(), nullptr);
+    module->print(errs(), nullptr);
     return 0;
 }

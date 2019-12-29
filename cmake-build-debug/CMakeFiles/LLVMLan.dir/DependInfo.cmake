@@ -8,8 +8,18 @@ set(CMAKE_DEPENDS_CHECK_CXX
   )
 set(CMAKE_CXX_COMPILER_ID "AppleClang")
 
+# Preprocessor definitions for this target.
+set(CMAKE_TARGET_DEFINITIONS_CXX
+  "__STDC_CONSTANT_MACROS"
+  "__STDC_FORMAT_MACROS"
+  "__STDC_LIMIT_MACROS"
+  )
+
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
+  "/usr/local/Cellar/llvm/9.0.0_1/include"
+  "../-std=c++11"
+  "../-stdlib=libc++"
   )
 
 # Targets to which this target links.
