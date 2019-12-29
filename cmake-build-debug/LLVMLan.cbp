@@ -50,6 +50,7 @@
 					<Add directory="/usr/local/Cellar/llvm/9.0.0_1/include"/>
 					<Add directory="/Users/popo/CLionProjects/LLVMLan/-std=c++11"/>
 					<Add directory="/Users/popo/CLionProjects/LLVMLan/-stdlib=libc++"/>
+					<Add directory="/Users/popo/CLionProjects/LLVMLan/include"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
 					<Add directory="/usr/local/include"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/11.0.0/include"/>
@@ -77,6 +78,7 @@
 					<Add directory="/usr/local/Cellar/llvm/9.0.0_1/include"/>
 					<Add directory="/Users/popo/CLionProjects/LLVMLan/-std=c++11"/>
 					<Add directory="/Users/popo/CLionProjects/LLVMLan/-stdlib=libc++"/>
+					<Add directory="/Users/popo/CLionProjects/LLVMLan/include"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
 					<Add directory="/usr/local/include"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/11.0.0/include"/>

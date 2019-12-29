@@ -12,11 +12,166 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e028706c-8d45-40d8-ac01-1fb77a4ef753" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/ANTLRErrorListener.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/ANTLRErrorStrategy.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/ANTLRFileStream.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/ANTLRInputStream.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/BailErrorStrategy.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/BaseErrorListener.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/BufferedTokenStream.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/CharStream.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/CommonToken.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/CommonTokenFactory.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/CommonTokenStream.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/ConsoleErrorListener.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/DefaultErrorStrategy.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/DiagnosticErrorListener.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/Exceptions.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/FailedPredicateException.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/InputMismatchException.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/IntStream.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/InterpreterRuleContext.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/Lexer.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/LexerInterpreter.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/LexerNoViableAltException.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/ListTokenSource.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/NoViableAltException.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/Parser.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/ParserInterpreter.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/ParserRuleContext.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/ProxyErrorListener.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/RecognitionException.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/Recognizer.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/RuleContext.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/RuleContextWithAltNum.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/RuntimeMetaData.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/Token.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/TokenFactory.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/TokenSource.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/TokenStream.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/TokenStreamRewriter.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/UnbufferedCharStream.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/UnbufferedTokenStream.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/Vocabulary.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/WritableToken.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/antlr4-common.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/antlr4-runtime.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/atn/ATN.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/atn/ATNConfig.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/atn/ATNConfigSet.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/atn/ATNDeserializationOptions.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/atn/ATNDeserializer.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/atn/ATNSerializer.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/atn/ATNSimulator.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/atn/ATNState.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/atn/ATNType.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/atn/AbstractPredicateTransition.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/atn/ActionTransition.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/atn/AmbiguityInfo.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/atn/ArrayPredictionContext.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/atn/AtomTransition.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/atn/BasicBlockStartState.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/atn/BasicState.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/atn/BlockEndState.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/atn/BlockStartState.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/atn/ContextSensitivityInfo.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/atn/DecisionEventInfo.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/atn/DecisionInfo.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/atn/DecisionState.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/atn/EmptyPredictionContext.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/atn/EpsilonTransition.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/atn/ErrorInfo.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/atn/LL1Analyzer.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/atn/LexerATNConfig.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/atn/LexerATNSimulator.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/atn/LexerAction.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/atn/LexerActionExecutor.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/atn/LexerActionType.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/atn/LexerChannelAction.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/atn/LexerCustomAction.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/atn/LexerIndexedCustomAction.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/atn/LexerModeAction.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/atn/LexerMoreAction.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/atn/LexerPopModeAction.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/atn/LexerPushModeAction.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/atn/LexerSkipAction.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/atn/LexerTypeAction.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/atn/LookaheadEventInfo.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/atn/LoopEndState.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/atn/NotSetTransition.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/atn/OrderedATNConfigSet.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/atn/ParseInfo.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/atn/ParserATNSimulator.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/atn/PlusBlockStartState.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/atn/PlusLoopbackState.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/atn/PrecedencePredicateTransition.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/atn/PredicateEvalInfo.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/atn/PredicateTransition.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/atn/PredictionContext.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/atn/PredictionMode.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/atn/ProfilingATNSimulator.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/atn/RangeTransition.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/atn/RuleStartState.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/atn/RuleStopState.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/atn/RuleTransition.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/atn/SemanticContext.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/atn/SetTransition.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/atn/SingletonPredictionContext.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/atn/StarBlockStartState.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/atn/StarLoopEntryState.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/atn/StarLoopbackState.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/atn/TokensStartState.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/atn/Transition.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/atn/WildcardTransition.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/dfa/DFA.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/dfa/DFASerializer.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/dfa/DFAState.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/dfa/LexerDFASerializer.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/misc/InterpreterDataReader.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/misc/Interval.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/misc/IntervalSet.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/misc/MurmurHash.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/misc/Predicate.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/support/Any.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/support/Arrays.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/support/BitSet.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/support/CPPUtils.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/support/Declarations.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/support/StringUtils.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/support/guid.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/tree/AbstractParseTreeVisitor.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/tree/ErrorNode.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/tree/ErrorNodeImpl.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/tree/IterativeParseTreeWalker.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/tree/ParseTree.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/tree/ParseTreeListener.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/tree/ParseTreeProperty.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/tree/ParseTreeVisitor.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/tree/ParseTreeWalker.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/tree/TerminalNode.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/tree/TerminalNodeImpl.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/tree/Trees.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/tree/pattern/Chunk.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/tree/pattern/ParseTreeMatch.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/tree/pattern/ParseTreePattern.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/tree/pattern/ParseTreePatternMatcher.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/tree/pattern/RuleTagToken.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/tree/pattern/TagChunk.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/tree/pattern/TextChunk.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/tree/pattern/TokenTagToken.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/tree/xpath/XPath.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/tree/xpath/XPathElement.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/tree/xpath/XPathLexer.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/tree/xpath/XPathLexerErrorListener.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/tree/xpath/XPathRuleAnywhereElement.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/tree/xpath/XPathRuleElement.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/tree/xpath/XPathTokenAnywhereElement.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/tree/xpath/XPathTokenElement.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/tree/xpath/XPathWildcardAnywhereElement.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/include/antlr/tree/xpath/XPathWildcardElement.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/libantlr4-runtime.a" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/LLVMLan.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/LLVMLan.dir/CXX.includecache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/LLVMLan.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/LLVMLan.dir/DependInfo.cmake" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/LLVMLan.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/LLVMLan.dir/build.make" afterDir="false" />
@@ -24,12 +179,8 @@
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/LLVMLan.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/LLVMLan.dir/depend.make" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/LLVMLan.dir/flags.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/LLVMLan.dir/flags.make" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/LLVMLan.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/LLVMLan.dir/link.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/LLVMLan.dir/main.cpp.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Progress/1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Progress/2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Progress/count.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/LLVMLan.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/LLVMLan.cbp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/KaleidoscopeJIT.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/jit/KaleidoscopeJIT.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -55,16 +206,21 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="settings.editor.selected.configurable" value="CPPToolchains" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/lib" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/include/jit" />
       <recent name="$PROJECT_DIR$/src" />
     </key>
   </component>
@@ -112,12 +268,38 @@
       <workItem from="1577455751504" duration="3365000" />
       <workItem from="1577503866783" duration="2309000" />
       <workItem from="1577516962902" duration="11823000" />
-      <workItem from="1577593172100" duration="4866000" />
+      <workItem from="1577593172100" duration="5889000" />
+      <workItem from="1577619578580" duration="1537000" />
     </task>
+    <task id="LOCAL-00001" summary="Add Statement Block &amp; LocalVariable">
+      <created>1577604422590</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1577604422590</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Add Statement Block &amp; LocalVariable" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add Statement Block &amp; LocalVariable" />
   </component>
   <component name="WindowStateProjectService">
     <state x="540" y="207" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1577357482659">
@@ -125,38 +307,48 @@
     </state>
     <state x="540" y="207" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1577357482659" />
     <state x="596" y="226" key="#com.intellij.execution.impl.EditConfigurationsDialog/78.23.1842.1057@78.23.1842.1057" timestamp="1577067641246" />
+    <state x="1210" y="585" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1577621239211">
+      <screen x="78" y="23" width="1842" height="1057" />
+    </state>
+    <state x="1210" y="585" key="#com.intellij.fileTypes.FileTypeChooser/78.23.1842.1057@78.23.1842.1057" timestamp="1577621239211" />
     <state x="166" y="264" width="762" height="579" key="#xdebugger.evaluate" timestamp="1577601660475">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="166" y="264" width="762" height="579" key="#xdebugger.evaluate/0.0.1920.1080@0.0.1920.1080" timestamp="1577601660475" />
-    <state x="719" y="195" key="CommitChangelistDialog2" timestamp="1577519988475">
-      <screen x="78" y="23" width="1842" height="1057" />
+    <state x="668" y="176" key="CommitChangelistDialog2" timestamp="1577604422346">
+      <screen x="0" y="0" width="1920" height="1080" />
     </state>
+    <state x="668" y="176" key="CommitChangelistDialog2/0.0.1920.1080@0.0.1920.1080" timestamp="1577604422346" />
     <state x="719" y="195" key="CommitChangelistDialog2/78.23.1842.1057@78.23.1842.1057" timestamp="1577519988475" />
     <state width="721" height="466" key="DebuggerActiveHint" timestamp="1577604178378">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="721" height="466" key="DebuggerActiveHint/0.0.1920.1080@0.0.1920.1080" timestamp="1577604178378" />
-    <state x="372" y="161" key="DiffContextDialog" timestamp="1577519986896">
+    <state x="306" y="141" width="1536" height="864" key="DiffContextDialog" timestamp="1577604526335">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="306" y="141" width="1536" height="864" key="DiffContextDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1577604526335" />
+    <state x="372" y="161" key="DiffContextDialog/78.23.1842.1057@78.23.1842.1057" timestamp="1577519986896" />
+    <state width="1206" height="289" key="GridCell.Tab.0.bottom" timestamp="1577621129441">
       <screen x="78" y="23" width="1842" height="1057" />
     </state>
-    <state x="372" y="161" key="DiffContextDialog/78.23.1842.1057@78.23.1842.1057" timestamp="1577519986896" />
-    <state width="908" height="304" key="GridCell.Tab.0.bottom" timestamp="1577604307739">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state width="908" height="304" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1577604426604" />
+    <state width="1206" height="289" key="GridCell.Tab.0.bottom/78.23.1842.1057@78.23.1842.1057" timestamp="1577621129441" />
+    <state width="1206" height="289" key="GridCell.Tab.0.center" timestamp="1577621129440">
+      <screen x="78" y="23" width="1842" height="1057" />
     </state>
-    <state width="908" height="304" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1577604307739" />
-    <state width="908" height="304" key="GridCell.Tab.0.center" timestamp="1577604307739">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state width="908" height="304" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1577604426603" />
+    <state width="1206" height="289" key="GridCell.Tab.0.center/78.23.1842.1057@78.23.1842.1057" timestamp="1577621129440" />
+    <state width="1206" height="289" key="GridCell.Tab.0.left" timestamp="1577621129440">
+      <screen x="78" y="23" width="1842" height="1057" />
     </state>
-    <state width="908" height="304" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1577604307739" />
-    <state width="908" height="304" key="GridCell.Tab.0.left" timestamp="1577604307738">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state width="908" height="304" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1577604426602" />
+    <state width="1206" height="289" key="GridCell.Tab.0.left/78.23.1842.1057@78.23.1842.1057" timestamp="1577621129440" />
+    <state width="1206" height="289" key="GridCell.Tab.0.right" timestamp="1577621129441">
+      <screen x="78" y="23" width="1842" height="1057" />
     </state>
-    <state width="908" height="304" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1577604307738" />
-    <state width="908" height="304" key="GridCell.Tab.0.right" timestamp="1577604307739">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state width="908" height="304" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1577604307739" />
+    <state width="908" height="304" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1577604426603" />
+    <state width="1206" height="289" key="GridCell.Tab.0.right/78.23.1842.1057@78.23.1842.1057" timestamp="1577621129441" />
     <state width="908" height="375" key="GridCell.Tab.1.bottom" timestamp="1577604287381">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
@@ -173,16 +365,16 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="908" height="375" key="GridCell.Tab.1.right/0.0.1920.1080@0.0.1920.1080" timestamp="1577604287380" />
-    <state x="553" y="203" key="SettingsEditor" timestamp="1577357443591">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state x="608" y="222" key="SettingsEditor" timestamp="1577621214115">
+      <screen x="78" y="23" width="1842" height="1057" />
     </state>
     <state x="553" y="203" key="SettingsEditor/0.0.1920.1080@0.0.1920.1080" timestamp="1577357443591" />
-    <state x="609" y="222" key="SettingsEditor/78.23.1842.1057@78.23.1842.1057" timestamp="1577067626609" />
-    <state x="692" y="383" key="com.intellij.ide.util.TipDialog" timestamp="1577593173358">
+    <state x="608" y="222" key="SettingsEditor/78.23.1842.1057@78.23.1842.1057" timestamp="1577621214115" />
+    <state x="640" y="368" key="com.intellij.ide.util.TipDialog" timestamp="1577621225884">
       <screen x="78" y="23" width="1842" height="1057" />
     </state>
     <state x="640" y="368" key="com.intellij.ide.util.TipDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1577348884194" />
-    <state x="692" y="383" key="com.intellij.ide.util.TipDialog/78.23.1842.1057@78.23.1842.1057" timestamp="1577593173358" />
+    <state x="640" y="368" key="com.intellij.ide.util.TipDialog/78.23.1842.1057@78.23.1842.1057" timestamp="1577621225884" />
     <state x="953" y="224" key="refactoring.ChangeSignatureDialog" timestamp="1577170309197">
       <screen x="78" y="23" width="1842" height="1057" />
     </state>

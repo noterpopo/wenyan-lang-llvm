@@ -5,7 +5,7 @@
 //  Created by 梁仕钢 on 2019/12/20.
 //  Copyright © 2019 梁仕钢. All rights reserved.
 //
-#include "../include/KaleidoscopeJIT.h"
+#include "jit/KaleidoscopeJIT.h"
 #include "llvm/ADT/APFloat.h"
 #include "llvm/ADT/STLExtras.h"
 #include "llvm/IR/BasicBlock.h"
@@ -778,7 +778,7 @@ Value *VarExprAST::codeGen() {
             GlobalVariable *gVar = globalVarModule->getNamedGlobal(varName);
             gVar->setLinkage(GlobalValue::CommonLinkage);
             gVar->setAlignment(8);
-            builder.CreateStore(initVal,gVar, true);
+            builder.CreateStore(initVal,gVar);
             return initVal;
         } else {
             AllocaInst *alloca = CreateEntryBlockAlloca(theFunction,varName);

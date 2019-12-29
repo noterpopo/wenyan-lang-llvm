@@ -6,5 +6,5 @@ CXX_FLAGS = -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/Ma
 
 CXX_DEFINES = -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS
 
-CXX_INCLUDES = -I/usr/local/Cellar/llvm/9.0.0_1/include -I/Users/popo/CLionProjects/LLVMLan/-std=c++11 -I/Users/popo/CLionProjects/LLVMLan/-stdlib=libc++ 
+CXX_INCLUDES = -I/usr/local/Cellar/llvm/9.0.0_1/include -I/Users/popo/CLionProjects/LLVMLan/-std=c++11 -I/Users/popo/CLionProjects/LLVMLan/-stdlib=libc++ -I/Users/popo/CLionProjects/LLVMLan/include 
 

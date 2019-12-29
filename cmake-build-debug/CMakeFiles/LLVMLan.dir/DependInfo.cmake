@@ -20,6 +20,7 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "/usr/local/Cellar/llvm/9.0.0_1/include"
   "../-std=c++11"
   "../-stdlib=libc++"
+  "../include"
   )
 
 # Targets to which this target links.

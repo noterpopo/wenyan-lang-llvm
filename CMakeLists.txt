@@ -3,8 +3,9 @@ project(LLVMLan)
 
 set(CMAKE_CXX_STANDARD 14)
 include_directories(/usr/local/Cellar/llvm/9.0.0_1/include -std=c++11 -stdlib=libc++)
+include_directories(${PROJECT_SOURCE_DIR}/include)
 set(CMAKE_SHARED_LINKER_FLAGS  "-L/usr/local/Cellar/llvm/9.0.0_1/lib -Wl,-search_paths_first -Wl,-headerpad_max_install_names")
-link_directories(/usr/local/Cellar/llvm/9.0.0_1/lib)
+link_directories(/usr/local/Cellar/llvm/9.0.0_1/lib ${PROJECT_SOURCE_DIR}/lib)
 add_definitions(
         -D__STDC_CONSTANT_MACROS
         -D__STDC_FORMAT_MACROS
@@ -59,4 +60,5 @@ target_link_libraries(LLVMLan
         m
         xml2
         ${CURSES_LIBRARIES}
+        ${PROJECT_SOURCE_DIR}/lib/libantlr4-runtime.a
         )

@@ -81,8 +81,10 @@ LLVMLan: CMakeFiles/LLVMLan.dir/src/main.cpp.o
 LLVMLan: CMakeFiles/LLVMLan.dir/build.make
 LLVMLan: /usr/lib/libcurses.dylib
 LLVMLan: /usr/lib/libform.dylib
+LLVMLan: ../lib/libantlr4-runtime.a
 LLVMLan: /usr/lib/libcurses.dylib
 LLVMLan: /usr/lib/libform.dylib
+LLVMLan: ../lib/libantlr4-runtime.a
 LLVMLan: CMakeFiles/LLVMLan.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/popo/CLionProjects/LLVMLan/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable LLVMLan"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/LLVMLan.dir/link.txt --verbose=$(VERBOSE)
