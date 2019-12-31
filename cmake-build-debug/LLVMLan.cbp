@@ -51,6 +51,7 @@
 					<Add directory="/Users/popo/CLionProjects/LLVMLan/-std=c++11"/>
 					<Add directory="/Users/popo/CLionProjects/LLVMLan/-stdlib=libc++"/>
 					<Add directory="/Users/popo/CLionProjects/LLVMLan/include"/>
+					<Add directory="/Users/popo/CLionProjects/LLVMLan/include/antlr"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
 					<Add directory="/usr/local/include"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/11.0.0/include"/>
@@ -79,6 +80,7 @@
 					<Add directory="/Users/popo/CLionProjects/LLVMLan/-std=c++11"/>
 					<Add directory="/Users/popo/CLionProjects/LLVMLan/-stdlib=libc++"/>
 					<Add directory="/Users/popo/CLionProjects/LLVMLan/include"/>
+					<Add directory="/Users/popo/CLionProjects/LLVMLan/include/antlr"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
 					<Add directory="/usr/local/include"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/11.0.0/include"/>
@@ -94,7 +96,25 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/Users/popo/CLionProjects/LLVMLan/include/util.h">
+			<Option target="LLVMLan"/>
+		</Unit>
+		<Unit filename="/Users/popo/CLionProjects/LLVMLan/src/WenyanBaseListener.cpp">
+			<Option target="LLVMLan"/>
+		</Unit>
+		<Unit filename="/Users/popo/CLionProjects/LLVMLan/src/WenyanLexer.cpp">
+			<Option target="LLVMLan"/>
+		</Unit>
+		<Unit filename="/Users/popo/CLionProjects/LLVMLan/src/WenyanListener.cpp">
+			<Option target="LLVMLan"/>
+		</Unit>
+		<Unit filename="/Users/popo/CLionProjects/LLVMLan/src/WenyanParser.cpp">
+			<Option target="LLVMLan"/>
+		</Unit>
 		<Unit filename="/Users/popo/CLionProjects/LLVMLan/src/main.cpp">
+			<Option target="LLVMLan"/>
+		</Unit>
+		<Unit filename="/Users/popo/CLionProjects/LLVMLan/src/util.cpp">
 			<Option target="LLVMLan"/>
 		</Unit>
 		<Unit filename="/Users/popo/CLionProjects/LLVMLan/CMakeLists.txt">

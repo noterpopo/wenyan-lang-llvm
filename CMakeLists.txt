@@ -4,6 +4,7 @@ project(LLVMLan)
 set(CMAKE_CXX_STANDARD 14)
 include_directories(/usr/local/Cellar/llvm/9.0.0_1/include -std=c++11 -stdlib=libc++)
 include_directories(${PROJECT_SOURCE_DIR}/include)
+include_directories(${PROJECT_SOURCE_DIR}/include/antlr)
 set(CMAKE_SHARED_LINKER_FLAGS  "-L/usr/local/Cellar/llvm/9.0.0_1/lib -Wl,-search_paths_first -Wl,-headerpad_max_install_names")
 link_directories(/usr/local/Cellar/llvm/9.0.0_1/lib ${PROJECT_SOURCE_DIR}/lib)
 add_definitions(
@@ -11,7 +12,7 @@ add_definitions(
         -D__STDC_FORMAT_MACROS
         -D__STDC_LIMIT_MACROS
 )
-add_executable(LLVMLan src/main.cpp)
+add_executable(LLVMLan src/main.cpp src/WenyanLexer.cpp src/WenyanParser.cpp src/WenyanBaseListener.cpp src/WenyanListener.cpp include/util.h src/util.cpp)
 target_link_libraries(
         LLVMLan
         LLVMX86Disassembler

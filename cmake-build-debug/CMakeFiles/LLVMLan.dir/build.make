@@ -70,14 +70,89 @@ CMakeFiles/LLVMLan.dir/src/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/LLVMLan.dir/src/main.cpp.s"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/popo/CLionProjects/LLVMLan/src/main.cpp -o CMakeFiles/LLVMLan.dir/src/main.cpp.s
 
+CMakeFiles/LLVMLan.dir/src/WenyanLexer.cpp.o: CMakeFiles/LLVMLan.dir/flags.make
+CMakeFiles/LLVMLan.dir/src/WenyanLexer.cpp.o: ../src/WenyanLexer.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/popo/CLionProjects/LLVMLan/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/LLVMLan.dir/src/WenyanLexer.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/LLVMLan.dir/src/WenyanLexer.cpp.o -c /Users/popo/CLionProjects/LLVMLan/src/WenyanLexer.cpp
+
+CMakeFiles/LLVMLan.dir/src/WenyanLexer.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/LLVMLan.dir/src/WenyanLexer.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/popo/CLionProjects/LLVMLan/src/WenyanLexer.cpp > CMakeFiles/LLVMLan.dir/src/WenyanLexer.cpp.i
+
+CMakeFiles/LLVMLan.dir/src/WenyanLexer.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/LLVMLan.dir/src/WenyanLexer.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/popo/CLionProjects/LLVMLan/src/WenyanLexer.cpp -o CMakeFiles/LLVMLan.dir/src/WenyanLexer.cpp.s
+
+CMakeFiles/LLVMLan.dir/src/WenyanParser.cpp.o: CMakeFiles/LLVMLan.dir/flags.make
+CMakeFiles/LLVMLan.dir/src/WenyanParser.cpp.o: ../src/WenyanParser.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/popo/CLionProjects/LLVMLan/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/LLVMLan.dir/src/WenyanParser.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/LLVMLan.dir/src/WenyanParser.cpp.o -c /Users/popo/CLionProjects/LLVMLan/src/WenyanParser.cpp
+
+CMakeFiles/LLVMLan.dir/src/WenyanParser.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/LLVMLan.dir/src/WenyanParser.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/popo/CLionProjects/LLVMLan/src/WenyanParser.cpp > CMakeFiles/LLVMLan.dir/src/WenyanParser.cpp.i
+
+CMakeFiles/LLVMLan.dir/src/WenyanParser.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/LLVMLan.dir/src/WenyanParser.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/popo/CLionProjects/LLVMLan/src/WenyanParser.cpp -o CMakeFiles/LLVMLan.dir/src/WenyanParser.cpp.s
+
+CMakeFiles/LLVMLan.dir/src/WenyanBaseListener.cpp.o: CMakeFiles/LLVMLan.dir/flags.make
+CMakeFiles/LLVMLan.dir/src/WenyanBaseListener.cpp.o: ../src/WenyanBaseListener.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/popo/CLionProjects/LLVMLan/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/LLVMLan.dir/src/WenyanBaseListener.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/LLVMLan.dir/src/WenyanBaseListener.cpp.o -c /Users/popo/CLionProjects/LLVMLan/src/WenyanBaseListener.cpp
+
+CMakeFiles/LLVMLan.dir/src/WenyanBaseListener.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/LLVMLan.dir/src/WenyanBaseListener.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/popo/CLionProjects/LLVMLan/src/WenyanBaseListener.cpp > CMakeFiles/LLVMLan.dir/src/WenyanBaseListener.cpp.i
+
+CMakeFiles/LLVMLan.dir/src/WenyanBaseListener.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/LLVMLan.dir/src/WenyanBaseListener.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/popo/CLionProjects/LLVMLan/src/WenyanBaseListener.cpp -o CMakeFiles/LLVMLan.dir/src/WenyanBaseListener.cpp.s
+
+CMakeFiles/LLVMLan.dir/src/WenyanListener.cpp.o: CMakeFiles/LLVMLan.dir/flags.make
+CMakeFiles/LLVMLan.dir/src/WenyanListener.cpp.o: ../src/WenyanListener.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/popo/CLionProjects/LLVMLan/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/LLVMLan.dir/src/WenyanListener.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/LLVMLan.dir/src/WenyanListener.cpp.o -c /Users/popo/CLionProjects/LLVMLan/src/WenyanListener.cpp
+
+CMakeFiles/LLVMLan.dir/src/WenyanListener.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/LLVMLan.dir/src/WenyanListener.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/popo/CLionProjects/LLVMLan/src/WenyanListener.cpp > CMakeFiles/LLVMLan.dir/src/WenyanListener.cpp.i
+
+CMakeFiles/LLVMLan.dir/src/WenyanListener.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/LLVMLan.dir/src/WenyanListener.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/popo/CLionProjects/LLVMLan/src/WenyanListener.cpp -o CMakeFiles/LLVMLan.dir/src/WenyanListener.cpp.s
+
+CMakeFiles/LLVMLan.dir/src/util.cpp.o: CMakeFiles/LLVMLan.dir/flags.make
+CMakeFiles/LLVMLan.dir/src/util.cpp.o: ../src/util.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/popo/CLionProjects/LLVMLan/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/LLVMLan.dir/src/util.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/LLVMLan.dir/src/util.cpp.o -c /Users/popo/CLionProjects/LLVMLan/src/util.cpp
+
+CMakeFiles/LLVMLan.dir/src/util.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/LLVMLan.dir/src/util.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/popo/CLionProjects/LLVMLan/src/util.cpp > CMakeFiles/LLVMLan.dir/src/util.cpp.i
+
+CMakeFiles/LLVMLan.dir/src/util.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/LLVMLan.dir/src/util.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/popo/CLionProjects/LLVMLan/src/util.cpp -o CMakeFiles/LLVMLan.dir/src/util.cpp.s
+
 # Object files for target LLVMLan
 LLVMLan_OBJECTS = \
-"CMakeFiles/LLVMLan.dir/src/main.cpp.o"
+"CMakeFiles/LLVMLan.dir/src/main.cpp.o" \
+"CMakeFiles/LLVMLan.dir/src/WenyanLexer.cpp.o" \
+"CMakeFiles/LLVMLan.dir/src/WenyanParser.cpp.o" \
+"CMakeFiles/LLVMLan.dir/src/WenyanBaseListener.cpp.o" \
+"CMakeFiles/LLVMLan.dir/src/WenyanListener.cpp.o" \
+"CMakeFiles/LLVMLan.dir/src/util.cpp.o"
 
 # External object files for target LLVMLan
 LLVMLan_EXTERNAL_OBJECTS =
 
 LLVMLan: CMakeFiles/LLVMLan.dir/src/main.cpp.o
+LLVMLan: CMakeFiles/LLVMLan.dir/src/WenyanLexer.cpp.o
+LLVMLan: CMakeFiles/LLVMLan.dir/src/WenyanParser.cpp.o
+LLVMLan: CMakeFiles/LLVMLan.dir/src/WenyanBaseListener.cpp.o
+LLVMLan: CMakeFiles/LLVMLan.dir/src/WenyanListener.cpp.o
+LLVMLan: CMakeFiles/LLVMLan.dir/src/util.cpp.o
 LLVMLan: CMakeFiles/LLVMLan.dir/build.make
 LLVMLan: /usr/lib/libcurses.dylib
 LLVMLan: /usr/lib/libform.dylib
@@ -86,7 +161,7 @@ LLVMLan: /usr/lib/libcurses.dylib
 LLVMLan: /usr/lib/libform.dylib
 LLVMLan: ../lib/libantlr4-runtime.a
 LLVMLan: CMakeFiles/LLVMLan.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/popo/CLionProjects/LLVMLan/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable LLVMLan"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/popo/CLionProjects/LLVMLan/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable LLVMLan"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/LLVMLan.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

@@ -4,7 +4,12 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
+  "/Users/popo/CLionProjects/LLVMLan/src/WenyanBaseListener.cpp" "/Users/popo/CLionProjects/LLVMLan/cmake-build-debug/CMakeFiles/LLVMLan.dir/src/WenyanBaseListener.cpp.o"
+  "/Users/popo/CLionProjects/LLVMLan/src/WenyanLexer.cpp" "/Users/popo/CLionProjects/LLVMLan/cmake-build-debug/CMakeFiles/LLVMLan.dir/src/WenyanLexer.cpp.o"
+  "/Users/popo/CLionProjects/LLVMLan/src/WenyanListener.cpp" "/Users/popo/CLionProjects/LLVMLan/cmake-build-debug/CMakeFiles/LLVMLan.dir/src/WenyanListener.cpp.o"
+  "/Users/popo/CLionProjects/LLVMLan/src/WenyanParser.cpp" "/Users/popo/CLionProjects/LLVMLan/cmake-build-debug/CMakeFiles/LLVMLan.dir/src/WenyanParser.cpp.o"
   "/Users/popo/CLionProjects/LLVMLan/src/main.cpp" "/Users/popo/CLionProjects/LLVMLan/cmake-build-debug/CMakeFiles/LLVMLan.dir/src/main.cpp.o"
+  "/Users/popo/CLionProjects/LLVMLan/src/util.cpp" "/Users/popo/CLionProjects/LLVMLan/cmake-build-debug/CMakeFiles/LLVMLan.dir/src/util.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "AppleClang")
 
@@ -21,6 +26,7 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "../-std=c++11"
   "../-stdlib=libc++"
   "../include"
+  "../include/antlr"
   )
 
 # Targets to which this target links.

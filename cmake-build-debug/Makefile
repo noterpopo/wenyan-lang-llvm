@@ -123,6 +123,114 @@ LLVMLan/fast:
 	$(MAKE) -f CMakeFiles/LLVMLan.dir/build.make CMakeFiles/LLVMLan.dir/build
 .PHONY : LLVMLan/fast
 
+src/WenyanBaseListener.o: src/WenyanBaseListener.cpp.o
+
+.PHONY : src/WenyanBaseListener.o
+
+# target to build an object file
+src/WenyanBaseListener.cpp.o:
+	$(MAKE) -f CMakeFiles/LLVMLan.dir/build.make CMakeFiles/LLVMLan.dir/src/WenyanBaseListener.cpp.o
+.PHONY : src/WenyanBaseListener.cpp.o
+
+src/WenyanBaseListener.i: src/WenyanBaseListener.cpp.i
+
+.PHONY : src/WenyanBaseListener.i
+
+# target to preprocess a source file
+src/WenyanBaseListener.cpp.i:
+	$(MAKE) -f CMakeFiles/LLVMLan.dir/build.make CMakeFiles/LLVMLan.dir/src/WenyanBaseListener.cpp.i
+.PHONY : src/WenyanBaseListener.cpp.i
+
+src/WenyanBaseListener.s: src/WenyanBaseListener.cpp.s
+
+.PHONY : src/WenyanBaseListener.s
+
+# target to generate assembly for a file
+src/WenyanBaseListener.cpp.s:
+	$(MAKE) -f CMakeFiles/LLVMLan.dir/build.make CMakeFiles/LLVMLan.dir/src/WenyanBaseListener.cpp.s
+.PHONY : src/WenyanBaseListener.cpp.s
+
+src/WenyanLexer.o: src/WenyanLexer.cpp.o
+
+.PHONY : src/WenyanLexer.o
+
+# target to build an object file
+src/WenyanLexer.cpp.o:
+	$(MAKE) -f CMakeFiles/LLVMLan.dir/build.make CMakeFiles/LLVMLan.dir/src/WenyanLexer.cpp.o
+.PHONY : src/WenyanLexer.cpp.o
+
+src/WenyanLexer.i: src/WenyanLexer.cpp.i
+
+.PHONY : src/WenyanLexer.i
+
+# target to preprocess a source file
+src/WenyanLexer.cpp.i:
+	$(MAKE) -f CMakeFiles/LLVMLan.dir/build.make CMakeFiles/LLVMLan.dir/src/WenyanLexer.cpp.i
+.PHONY : src/WenyanLexer.cpp.i
+
+src/WenyanLexer.s: src/WenyanLexer.cpp.s
+
+.PHONY : src/WenyanLexer.s
+
+# target to generate assembly for a file
+src/WenyanLexer.cpp.s:
+	$(MAKE) -f CMakeFiles/LLVMLan.dir/build.make CMakeFiles/LLVMLan.dir/src/WenyanLexer.cpp.s
+.PHONY : src/WenyanLexer.cpp.s
+
+src/WenyanListener.o: src/WenyanListener.cpp.o
+
+.PHONY : src/WenyanListener.o
+
+# target to build an object file
+src/WenyanListener.cpp.o:
+	$(MAKE) -f CMakeFiles/LLVMLan.dir/build.make CMakeFiles/LLVMLan.dir/src/WenyanListener.cpp.o
+.PHONY : src/WenyanListener.cpp.o
+
+src/WenyanListener.i: src/WenyanListener.cpp.i
+
+.PHONY : src/WenyanListener.i
+
+# target to preprocess a source file
+src/WenyanListener.cpp.i:
+	$(MAKE) -f CMakeFiles/LLVMLan.dir/build.make CMakeFiles/LLVMLan.dir/src/WenyanListener.cpp.i
+.PHONY : src/WenyanListener.cpp.i
+
+src/WenyanListener.s: src/WenyanListener.cpp.s
+
+.PHONY : src/WenyanListener.s
+
+# target to generate assembly for a file
+src/WenyanListener.cpp.s:
+	$(MAKE) -f CMakeFiles/LLVMLan.dir/build.make CMakeFiles/LLVMLan.dir/src/WenyanListener.cpp.s
+.PHONY : src/WenyanListener.cpp.s
+
+src/WenyanParser.o: src/WenyanParser.cpp.o
+
+.PHONY : src/WenyanParser.o
+
+# target to build an object file
+src/WenyanParser.cpp.o:
+	$(MAKE) -f CMakeFiles/LLVMLan.dir/build.make CMakeFiles/LLVMLan.dir/src/WenyanParser.cpp.o
+.PHONY : src/WenyanParser.cpp.o
+
+src/WenyanParser.i: src/WenyanParser.cpp.i
+
+.PHONY : src/WenyanParser.i
+
+# target to preprocess a source file
+src/WenyanParser.cpp.i:
+	$(MAKE) -f CMakeFiles/LLVMLan.dir/build.make CMakeFiles/LLVMLan.dir/src/WenyanParser.cpp.i
+.PHONY : src/WenyanParser.cpp.i
+
+src/WenyanParser.s: src/WenyanParser.cpp.s
+
+.PHONY : src/WenyanParser.s
+
+# target to generate assembly for a file
+src/WenyanParser.cpp.s:
+	$(MAKE) -f CMakeFiles/LLVMLan.dir/build.make CMakeFiles/LLVMLan.dir/src/WenyanParser.cpp.s
+.PHONY : src/WenyanParser.cpp.s
+
 src/main.o: src/main.cpp.o
 
 .PHONY : src/main.o
@@ -150,6 +258,33 @@ src/main.cpp.s:
 	$(MAKE) -f CMakeFiles/LLVMLan.dir/build.make CMakeFiles/LLVMLan.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
+src/util.o: src/util.cpp.o
+
+.PHONY : src/util.o
+
+# target to build an object file
+src/util.cpp.o:
+	$(MAKE) -f CMakeFiles/LLVMLan.dir/build.make CMakeFiles/LLVMLan.dir/src/util.cpp.o
+.PHONY : src/util.cpp.o
+
+src/util.i: src/util.cpp.i
+
+.PHONY : src/util.i
+
+# target to preprocess a source file
+src/util.cpp.i:
+	$(MAKE) -f CMakeFiles/LLVMLan.dir/build.make CMakeFiles/LLVMLan.dir/src/util.cpp.i
+.PHONY : src/util.cpp.i
+
+src/util.s: src/util.cpp.s
+
+.PHONY : src/util.s
+
+# target to generate assembly for a file
+src/util.cpp.s:
+	$(MAKE) -f CMakeFiles/LLVMLan.dir/build.make CMakeFiles/LLVMLan.dir/src/util.cpp.s
+.PHONY : src/util.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -159,9 +294,24 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... LLVMLan"
+	@echo "... src/WenyanBaseListener.o"
+	@echo "... src/WenyanBaseListener.i"
+	@echo "... src/WenyanBaseListener.s"
+	@echo "... src/WenyanLexer.o"
+	@echo "... src/WenyanLexer.i"
+	@echo "... src/WenyanLexer.s"
+	@echo "... src/WenyanListener.o"
+	@echo "... src/WenyanListener.i"
+	@echo "... src/WenyanListener.s"
+	@echo "... src/WenyanParser.o"
+	@echo "... src/WenyanParser.i"
+	@echo "... src/WenyanParser.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
+	@echo "... src/util.o"
+	@echo "... src/util.i"
+	@echo "... src/util.s"
 .PHONY : help
 
 
