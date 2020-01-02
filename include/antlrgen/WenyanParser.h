@@ -38,9 +38,10 @@ public:
 
   enum {
     RuleProgram = 0, RuleBlock = 1, RuleStatement = 2, RuleExpression = 3, 
-    RuleAssignStatement = 4, RuleIfStatement = 5, RuleForStatement = 6, 
-    RuleVariable = 7, RuleApplyStatement = 8, RuleApplyFunction = 9, RuleDeclarefunction = 10, 
-    RuleVariables = 11, RuleDeclareNumber = 12, RuleNumber = 13, RuleDigits = 14
+    RuleAssignStatement = 4, RuleIfStatement = 5, RuleIfThenState = 6, RuleIfElseState = 7, 
+    RuleForStatement = 8, RuleVariable = 9, RuleApplyStatement = 10, RuleApplyFunction = 11, 
+    RuleDeclarefunction = 12, RuleVariables = 13, RuleDeclareNumber = 14, 
+    RuleNumber = 15, RuleDigits = 16
   };
 
   WenyanParser(antlr4::TokenStream *input);
@@ -59,6 +60,8 @@ public:
   class ExpressionContext;
   class AssignStatementContext;
   class IfStatementContext;
+  class IfThenStateContext;
+  class IfElseStateContext;
   class ForStatementContext;
   class VariableContext;
   class ApplyStatementContext;
@@ -168,12 +171,12 @@ public:
     antlr4::tree::TerminalNode *If();
     ExpressionContext *expression();
     antlr4::tree::TerminalNode *EndDeclare();
-    std::vector<antlr4::tree::TerminalNode *> Return();
-    antlr4::tree::TerminalNode* Return(size_t i);
-    std::vector<BlockContext *> block();
-    BlockContext* block(size_t i);
-    antlr4::tree::TerminalNode *Else();
+    IfThenStateContext *ifThenState();
+    IfElseStateContext *ifElseState();
     antlr4::tree::TerminalNode *EndStatment();
+    BasicBlock *thenBB;
+    BasicBlock *elseBB;
+    BasicBlock *mergeBB;
 
     virtual void enterRule(antlr4::tree::ParseTreeListener *listener) override;
     virtual void exitRule(antlr4::tree::ParseTreeListener *listener) override;
@@ -181,6 +184,41 @@ public:
   };
 
   IfStatementContext* ifStatement();
+
+  class  IfThenStateContext : public antlr4::ParserRuleContext {
+  public:
+    IfThenStateContext(antlr4::ParserRuleContext *parent, size_t invokingState);
+    virtual size_t getRuleIndex() const override;
+    antlr4::tree::TerminalNode *Return();
+    BlockContext *block();
+    BasicBlock *thenBB;
+    BasicBlock *elseBB;
+    BasicBlock *mergeBB;
+
+    virtual void enterRule(antlr4::tree::ParseTreeListener *listener) override;
+    virtual void exitRule(antlr4::tree::ParseTreeListener *listener) override;
+   
+  };
+
+  IfThenStateContext* ifThenState();
+
+  class  IfElseStateContext : public antlr4::ParserRuleContext {
+  public:
+    IfElseStateContext(antlr4::ParserRuleContext *parent, size_t invokingState);
+    virtual size_t getRuleIndex() const override;
+    antlr4::tree::TerminalNode *Else();
+    antlr4::tree::TerminalNode *Return();
+    BlockContext *block();
+    BasicBlock *thenBB;
+    BasicBlock *elseBB;
+    BasicBlock *mergeBB;
+
+    virtual void enterRule(antlr4::tree::ParseTreeListener *listener) override;
+    virtual void exitRule(antlr4::tree::ParseTreeListener *listener) override;
+   
+  };
+
+  IfElseStateContext* ifElseState();
 
   class  ForStatementContext : public antlr4::ParserRuleContext {
   public:
