@@ -55,6 +55,9 @@ public:
   virtual void enterApplyFunction(WenyanParser::ApplyFunctionContext * /*ctx*/) override { }
   virtual void exitApplyFunction(WenyanParser::ApplyFunctionContext * /*ctx*/) override { }
 
+  virtual void enterFuncVars(WenyanParser::FuncVarsContext * /*ctx*/) override { }
+  virtual void exitFuncVars(WenyanParser::FuncVarsContext * /*ctx*/) override { }
+
   virtual void enterDeclarefunction(WenyanParser::DeclarefunctionContext * /*ctx*/) override { }
   virtual void exitDeclarefunction(WenyanParser::DeclarefunctionContext * /*ctx*/) override { }
 

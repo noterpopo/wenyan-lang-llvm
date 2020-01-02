@@ -248,9 +248,18 @@ public:
     }
 
 
-    void enterApplyFunction(WenyanParser::ApplyFunctionContext *context) override {
+    void exitApplyFunction(WenyanParser::ApplyFunctionContext *context) override {
         WenyanBaseListener::enterApplyFunction(context);
         std::cout<<"enterApplyFun"<<std::endl;
+        std::vector<Value *> argsV;
+        for(int i =0;i<context->funcVars().size();++i){
+            Value *v = context->funcVars()[i]->sn?context->funcVars()[i]->sn->value:context->funcVars()[i]->sv->value;
+            argsV.push_back(v);
+        }
+        std::string callee;
+        chineseConvertPy(context->fv->getText(),callee);
+        Function *calleeF = getFunction(callee);
+        context->value = builder.CreateCall(calleeF,argsV,"calltmp");
     }
 
     void enterDeclarefunction(WenyanParser::DeclarefunctionContext *context) override {
@@ -258,11 +267,13 @@ public:
         std::cout<<"enterDecfun"<<std::endl;
         // gen Proto
         std::vector<std::string> argNames;
-        std::vector<WenyanParser::VariableContext *> vars=context->variables()->variable();
-        for(int i=0;i<vars.size();++i){
-            std::string argName;
-            chineseConvertPy(vars[i]->getText(), argName);
-            argNames.push_back(argName);
+        if(context->variables()){
+            std::vector<WenyanParser::VariableContext *> vars=context->variables()->variable();
+            for(int i=0;i<vars.size();++i){
+                std::string argName;
+                chineseConvertPy(vars[i]->getText(), argName);
+                argNames.push_back(argName);
+            }
         }
         std::string fnName;
         chineseConvertPy(context->variable()->getText(), fnName);

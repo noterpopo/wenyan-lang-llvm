@@ -331,10 +331,10 @@ public:
     antlr4::tree::TerminalNode *DeclareMethod();
     antlr4::tree::TerminalNode *NameAs();
     VariableContext *variable();
-    VariablesContext *variables();
     antlr4::tree::TerminalNode *FunctionStart();
     BlockContext *block();
     antlr4::tree::TerminalNode *FunctionEnd();
+    VariablesContext *variables();
     antlr4::tree::TerminalNode *EndStatment();
     Function *theFunction;
 

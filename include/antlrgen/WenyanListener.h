@@ -53,6 +53,9 @@ public:
   virtual void enterApplyFunction(WenyanParser::ApplyFunctionContext *ctx) = 0;
   virtual void exitApplyFunction(WenyanParser::ApplyFunctionContext *ctx) = 0;
 
+  virtual void enterFuncVars(WenyanParser::FuncVarsContext *ctx) = 0;
+  virtual void exitFuncVars(WenyanParser::FuncVarsContext *ctx) = 0;
+
   virtual void enterDeclarefunction(WenyanParser::DeclarefunctionContext *ctx) = 0;
   virtual void exitDeclarefunction(WenyanParser::DeclarefunctionContext *ctx) = 0;
 

@@ -60,7 +60,8 @@ Right4   : '」';
 /*====================================================================================================================*/
 applyStatement : applyFunction;
 //施「翻倍」於「大衍」
-applyFunction : Apply (fn = number|fv =variable) At sv =variable;
+applyFunction : Apply fv = variable At? funcVars*;
+funcVars: sn = number|sv =variable;
 Apply         : Shi2; //施
 At            : Yu; // 于
 
@@ -78,7 +79,7 @@ fragment Yun : '云' | '雲';
 // 是術曰。⋯⋯是謂「六脈神劍」之術也。
 // $antlr-format alignColons hanging;
 declarefunction
-    : DeclareMethod NameAs variable variables FunctionStart block FunctionEnd EndStatment?;
+    : DeclareMethod NameAs variable variables? FunctionStart block FunctionEnd EndStatment?;
 // $antlr-format alignColons trailing;
 FunctionStart : Nai Xing Is Shu2 ValueIs; //是术曰
 FunctionEnd   : ThisIs Variable MethodOf; //是谓「XX」之术也
