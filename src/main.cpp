@@ -26,6 +26,12 @@ static std::map<std::string,AllocaInst *> namedValues;
 static std::unique_ptr<legacy::FunctionPassManager> fpm;
 static std::unique_ptr<KaleidoscopeJIT> jit;
 static std::map<std::string, std::unique_ptr<PrototypeAST>> functionProtos;
+static enum CtxType{
+    GLOBAL = 0,
+    FUNCTION,
+    BLOCK
+};
+static CtxType curCtx = GLOBAL;
 
 
 class PrototypeAST {
@@ -129,6 +135,13 @@ public:
                 Value *rv = context->sn?context->sn->value:context->sv->value;
                 context->value = builder.CreateFMul(lv,rv,"multmp");
             }
+        } else if (context->OP().size()) {
+            Value *lv = context->fn?context->fn->value:context->fv->value;
+            Value *rv = context->sn?context->sn->value:context->sv->value;
+            lv = builder.CreateFCmpULT(lv,rv,"cmptmp");
+            context->value =  builder.CreateUIToFP(lv,Type::getDoubleTy(theLLVMContext),"booltmp");
+        } else {
+            context->value = context->fn?context->fn->value:context->fv->value;
         }
         std::cout<<"exitExpr"<<std::endl;
     }
@@ -136,11 +149,54 @@ public:
     void enterIfStatement(WenyanParser::IfStatementContext *context) override {
         WenyanBaseListener::enterIfStatement(context);
         std::cout<<"enterIf"<<std::endl;
+        Value *condV = context->expression()->value;
+        if(!condV)
+            return;
+        condV = builder.CreateFCmpONE(condV,ConstantFP::get(theLLVMContext,APFloat(0.0)),"ifcond");
+        Function *theFunction = builder.GetInsertBlock()->getParent();
+        BasicBlock *thenBB = BasicBlock::Create(theLLVMContext,"then",theFunction);
+        BasicBlock *elseBB = BasicBlock::Create(theLLVMContext,"else");
+        BasicBlock *mergeBB = BasicBlock::Create(theLLVMContext,"ifcont");
+        builder.CreateCondBr(condV,thenBB,elseBB);
+        builder.SetInsertPoint(thenBB);
+
+    }
+
+    void exitIfStatement(WenyanParser::IfStatementContext *context) override {
+
     }
 
     void enterForStatement(WenyanParser::ForStatementContext *context) override {
         WenyanBaseListener::enterForStatement(context);
         std::cout<<"enterFor"<<std::endl;
+        context->theFunction = builder.GetInsertBlock()->getParent();
+        context->alloca = CreateEntryBlockAlloca(context->theFunction,"index");
+        builder.CreateStore(ConstantFP::get(Type::getDoubleTy(theLLVMContext),0.0),context->alloca);
+        context->loopBB = BasicBlock::Create(theLLVMContext,"loop",context->theFunction);
+        builder.CreateBr(context->loopBB);
+        builder.SetInsertPoint(context->loopBB);
+    }
+
+    void exitForStatement(WenyanParser::ForStatementContext *context) override {
+        WenyanBaseListener::exitForStatement(context);
+        AllocaInst * oldVal = namedValues["index"];
+        namedValues["index"] = context->alloca;
+        Value *stepV = ConstantFP::get(theLLVMContext,APFloat(1.0));
+        Value *endV = context->number()->value;
+        Value *curVar = builder.CreateLoad(context->alloca,"index");
+        Value *nextVar = builder.CreateFAdd(curVar,stepV,"nextVar");
+        builder.CreateStore(nextVar,context->alloca);
+        Value *l = builder.CreateFCmpULT(nextVar,context->number()->value,"cmptmp");
+        endV = builder.CreateUIToFP(l,Type::getDoubleTy(theLLVMContext),"booltmp");
+        endV = builder.CreateFCmpONE(endV,ConstantFP::get(theLLVMContext,APFloat(0.0)),"loopcond");
+        BasicBlock *loopEndBB = builder.GetInsertBlock();
+        BasicBlock *afterBB = BasicBlock::Create(theLLVMContext,"afterloop",context->theFunction);
+        builder.CreateCondBr(endV,context->loopBB,afterBB);
+        builder.SetInsertPoint(afterBB);
+        if(oldVal)
+            namedValues["index"] = oldVal;
+        else
+            namedValues.erase("index");
     }
 
     void enterVariable(WenyanParser::VariableContext *context) override {
@@ -189,6 +245,7 @@ public:
             namedValues[arg.getName()] = alloca;
         }
         context->theFunction = theFunction;
+        curCtx = FUNCTION;
     }
 
     void exitDeclarefunction(WenyanParser::DeclarefunctionContext *context) override {
@@ -197,20 +254,33 @@ public:
             builder.CreateRet(retVal);
             verifyFunction(*context->theFunction);
             fpm->run(*context->theFunction);
+            curCtx = GLOBAL;
             return;
         }
+        curCtx = GLOBAL;
         context->theFunction->eraseFromParent();
     }
 
-
-    void enterVariables(WenyanParser::VariablesContext *context) override {
-        WenyanBaseListener::enterVariables(context);
-        std::cout<<"enterFuncVariables"<<std::endl;
-    }
-
-    void enterDeclareNumber(WenyanParser::DeclareNumberContext *context) override {
+    void exitDeclareNumber(WenyanParser::DeclareNumberContext *context) override {
         WenyanBaseListener::enterDeclareNumber(context);
-        std::cout<<"enterDecNum"<<std::endl;
+        std::cout<<"exitDecNum"<<std::endl;
+        if(curCtx == FUNCTION){
+            Function *theFunction = builder.GetInsertBlock()->getParent();
+            for (unsigned i =0,e= context->variable().size();i!=e;++i){
+                std::string varName;
+                chineseConvertPy(context->variable()[i]->getText(),varName);
+                Value *initVal = context->expression()[i]->value;
+                if(!initVal){
+                    initVal = ConstantFP::get(theLLVMContext,APFloat(0.0));
+                }
+                AllocaInst *alloca = CreateEntryBlockAlloca(theFunction,varName);
+                builder.CreateStore(initVal,alloca);
+                namedValues[varName] = alloca;
+            }
+        } else {
+            //TODO Global
+        }
+        context->value = context->expression()[0]->value;
     }
 
     void enterNumber(WenyanParser::NumberContext *context) override {
@@ -219,14 +289,17 @@ public:
         context->value = ConstantFP::get(Type::getDoubleTy(theLLVMContext),chineseNum2num(context->getText()));
     }
 
-    void enterNumberInteger(WenyanParser::NumberIntegerContext *context) override {
-        WenyanBaseListener::enterNumberInteger(context);
-        std::cout<<"enterNumberInteger"<<std::endl;
-    }
-
-    void enterAssignStatement(WenyanParser::AssignStatementContext *context) override {
+    void exitAssignStatement(WenyanParser::AssignStatementContext *context) override {
         WenyanBaseListener::enterAssignStatement(context);
         std::cout<<"enterAssign"<<std::endl;
+        std::string varName;
+        chineseConvertPy(context->variable()->getText(),varName);
+        Value *variable = namedValues[varName];
+        if(context->expression()->value){
+            fprintf(stderr,"expression value is null");
+        }
+        builder.CreateStore(context->expression()->value,variable);
+        context->value = context->expression()->value;
     }
 };
 

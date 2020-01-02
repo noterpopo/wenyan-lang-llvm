@@ -23,6 +23,9 @@ fragment Cheng : '乘';
 fragment XiaoYu : '小'Yu;
 fragment Yi3   : '以';
 
+assignStatement: XiZhi variable EndDeclare '今' expression ShiYi;
+XiZhi : '昔之';
+ShiYi : '是矣';
 /*====================================================================================================================*/
 // $antlr-format alignColons trailing;
 ifStatement : If expression EndDeclare Return block Else Return block EndStatment?;
@@ -37,17 +40,13 @@ fragment Nai : '乃';
 fragment De  : '得';
 fragment Zhe : '者';
 
-forStatement: ForStart block ForEnd;
-ForStart : Weishi IntegerDigitCN+ Bian;
+forStatement: ForStart number ForStart2 block ForEnd;
+ForStart : Weishi;
+ForStart2:Bian;
 ForEnd : YunYum;
 fragment Weishi : '為是';
 fragment Bian : '遍';
 fragment YunYum : '云云';
-
-assignStatement: LHS  '今' expression ShiYi;
-LHS: XiZhi Variable Zhe;
-XiZhi : '昔之';
-ShiYi : '是矣';
 
 variable : Variable;
 Variable : Left4 Character+ Right4 | Left Character+ Right;

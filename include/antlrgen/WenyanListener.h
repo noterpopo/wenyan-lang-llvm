@@ -26,14 +26,14 @@ public:
   virtual void enterExpression(WenyanParser::ExpressionContext *ctx) = 0;
   virtual void exitExpression(WenyanParser::ExpressionContext *ctx) = 0;
 
+  virtual void enterAssignStatement(WenyanParser::AssignStatementContext *ctx) = 0;
+  virtual void exitAssignStatement(WenyanParser::AssignStatementContext *ctx) = 0;
+
   virtual void enterIfStatement(WenyanParser::IfStatementContext *ctx) = 0;
   virtual void exitIfStatement(WenyanParser::IfStatementContext *ctx) = 0;
 
   virtual void enterForStatement(WenyanParser::ForStatementContext *ctx) = 0;
   virtual void exitForStatement(WenyanParser::ForStatementContext *ctx) = 0;
-
-  virtual void enterAssignStatement(WenyanParser::AssignStatementContext *ctx) = 0;
-  virtual void exitAssignStatement(WenyanParser::AssignStatementContext *ctx) = 0;
 
   virtual void enterVariable(WenyanParser::VariableContext *ctx) = 0;
   virtual void exitVariable(WenyanParser::VariableContext *ctx) = 0;

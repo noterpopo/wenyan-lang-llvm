@@ -25,8 +25,8 @@ using namespace llvm;
 class  WenyanParser : public antlr4::Parser {
 public:
   enum {
-    T__0 = 1, OP = 2, YI3 = 3, If = 4, EndDeclare = 5, Else = 6, Return = 7, 
-    ForStart = 8, ForEnd = 9, LHS = 10, XiZhi = 11, ShiYi = 12, Variable = 13, 
+    T__0 = 1, OP = 2, YI3 = 3, XiZhi = 4, ShiYi = 5, If = 6, EndDeclare = 7, 
+    Else = 8, Return = 9, ForStart = 10, ForStart2 = 11, ForEnd = 12, Variable = 13, 
     Left = 14, Right = 15, Left4 = 16, Right4 = 17, Apply = 18, At = 19, 
     The = 20, End = 21, FunctionStart = 22, FunctionEnd = 23, VarPref = 24, 
     VariableStart = 25, DeclareMethod = 26, ThisIs = 27, Is = 28, Said = 29, 
@@ -38,7 +38,7 @@ public:
 
   enum {
     RuleProgram = 0, RuleBlock = 1, RuleStatement = 2, RuleExpression = 3, 
-    RuleIfStatement = 4, RuleForStatement = 5, RuleAssignStatement = 6, 
+    RuleAssignStatement = 4, RuleIfStatement = 5, RuleForStatement = 6, 
     RuleVariable = 7, RuleApplyStatement = 8, RuleApplyFunction = 9, RuleDeclarefunction = 10, 
     RuleVariables = 11, RuleDeclareNumber = 12, RuleNumber = 13, RuleDigits = 14
   };
@@ -57,9 +57,9 @@ public:
   class BlockContext;
   class StatementContext;
   class ExpressionContext;
+  class AssignStatementContext;
   class IfStatementContext;
   class ForStatementContext;
-  class AssignStatementContext;
   class VariableContext;
   class ApplyStatementContext;
   class ApplyFunctionContext;
@@ -143,6 +143,24 @@ public:
 
   ExpressionContext* expression();
 
+  class  AssignStatementContext : public antlr4::ParserRuleContext {
+  public:
+    AssignStatementContext(antlr4::ParserRuleContext *parent, size_t invokingState);
+    virtual size_t getRuleIndex() const override;
+    antlr4::tree::TerminalNode *XiZhi();
+    VariableContext *variable();
+    antlr4::tree::TerminalNode *EndDeclare();
+    ExpressionContext *expression();
+    antlr4::tree::TerminalNode *ShiYi();
+    Value *value;
+
+    virtual void enterRule(antlr4::tree::ParseTreeListener *listener) override;
+    virtual void exitRule(antlr4::tree::ParseTreeListener *listener) override;
+   
+  };
+
+  AssignStatementContext* assignStatement();
+
   class  IfStatementContext : public antlr4::ParserRuleContext {
   public:
     IfStatementContext(antlr4::ParserRuleContext *parent, size_t invokingState);
@@ -169,8 +187,13 @@ public:
     ForStatementContext(antlr4::ParserRuleContext *parent, size_t invokingState);
     virtual size_t getRuleIndex() const override;
     antlr4::tree::TerminalNode *ForStart();
+    NumberContext *number();
+    antlr4::tree::TerminalNode *ForStart2();
     BlockContext *block();
     antlr4::tree::TerminalNode *ForEnd();
+    Function *theFunction;
+    AllocaInst *alloca;
+    BasicBlock *loopBB;
 
     virtual void enterRule(antlr4::tree::ParseTreeListener *listener) override;
     virtual void exitRule(antlr4::tree::ParseTreeListener *listener) override;
@@ -178,22 +201,6 @@ public:
   };
 
   ForStatementContext* forStatement();
-
-  class  AssignStatementContext : public antlr4::ParserRuleContext {
-  public:
-    AssignStatementContext(antlr4::ParserRuleContext *parent, size_t invokingState);
-    virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *LHS();
-    ExpressionContext *expression();
-    antlr4::tree::TerminalNode *ShiYi();
-    Value *value;
-
-    virtual void enterRule(antlr4::tree::ParseTreeListener *listener) override;
-    virtual void exitRule(antlr4::tree::ParseTreeListener *listener) override;
-   
-  };
-
-  AssignStatementContext* assignStatement();
 
   class  VariableContext : public antlr4::ParserRuleContext {
   public:

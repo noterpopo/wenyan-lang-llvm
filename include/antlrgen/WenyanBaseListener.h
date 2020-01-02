@@ -28,14 +28,14 @@ public:
   virtual void enterExpression(WenyanParser::ExpressionContext * /*ctx*/) override { }
   virtual void exitExpression(WenyanParser::ExpressionContext * /*ctx*/) override { }
 
+  virtual void enterAssignStatement(WenyanParser::AssignStatementContext * /*ctx*/) override { }
+  virtual void exitAssignStatement(WenyanParser::AssignStatementContext * /*ctx*/) override { }
+
   virtual void enterIfStatement(WenyanParser::IfStatementContext * /*ctx*/) override { }
   virtual void exitIfStatement(WenyanParser::IfStatementContext * /*ctx*/) override { }
 
   virtual void enterForStatement(WenyanParser::ForStatementContext * /*ctx*/) override { }
   virtual void exitForStatement(WenyanParser::ForStatementContext * /*ctx*/) override { }
-
-  virtual void enterAssignStatement(WenyanParser::AssignStatementContext * /*ctx*/) override { }
-  virtual void exitAssignStatement(WenyanParser::AssignStatementContext * /*ctx*/) override { }
 
   virtual void enterVariable(WenyanParser::VariableContext * /*ctx*/) override { }
   virtual void exitVariable(WenyanParser::VariableContext * /*ctx*/) override { }
