@@ -40,8 +40,9 @@ public:
     RuleProgram = 0, RuleBlock = 1, RuleStatement = 2, RuleExpression = 3, 
     RuleAssignStatement = 4, RuleIfStatement = 5, RuleIfStartState = 6, 
     RuleIfThenState = 7, RuleIfElseState = 8, RuleForStatement = 9, RuleVariable = 10, 
-    RuleApplyStatement = 11, RuleApplyFunction = 12, RuleDeclarefunction = 13, 
-    RuleVariables = 14, RuleDeclareNumber = 15, RuleNumber = 16, RuleDigits = 17
+    RuleApplyStatement = 11, RuleApplyFunction = 12, RuleFuncVars = 13, 
+    RuleDeclarefunction = 14, RuleVariables = 15, RuleDeclareNumber = 16, 
+    RuleNumber = 17, RuleDigits = 18
   };
 
   WenyanParser(antlr4::TokenStream *input);
@@ -67,6 +68,7 @@ public:
   class VariableContext;
   class ApplyStatementContext;
   class ApplyFunctionContext;
+  class FuncVarsContext;
   class DeclarefunctionContext;
   class VariablesContext;
   class DeclareNumberContext;
@@ -289,16 +291,14 @@ public:
 
   class  ApplyFunctionContext : public antlr4::ParserRuleContext {
   public:
-    WenyanParser::NumberContext *fn = nullptr;;
     WenyanParser::VariableContext *fv = nullptr;;
-    WenyanParser::VariableContext *sv = nullptr;;
     ApplyFunctionContext(antlr4::ParserRuleContext *parent, size_t invokingState);
     virtual size_t getRuleIndex() const override;
     antlr4::tree::TerminalNode *Apply();
+    VariableContext *variable();
     antlr4::tree::TerminalNode *At();
-    std::vector<VariableContext *> variable();
-    VariableContext* variable(size_t i);
-    NumberContext *number();
+    std::vector<FuncVarsContext *> funcVars();
+    FuncVarsContext* funcVars(size_t i);
     Value *value;
 
     virtual void enterRule(antlr4::tree::ParseTreeListener *listener) override;
@@ -307,6 +307,22 @@ public:
   };
 
   ApplyFunctionContext* applyFunction();
+
+  class  FuncVarsContext : public antlr4::ParserRuleContext {
+  public:
+    WenyanParser::NumberContext *sn = nullptr;;
+    WenyanParser::VariableContext *sv = nullptr;;
+    FuncVarsContext(antlr4::ParserRuleContext *parent, size_t invokingState);
+    virtual size_t getRuleIndex() const override;
+    NumberContext *number();
+    VariableContext *variable();
+
+    virtual void enterRule(antlr4::tree::ParseTreeListener *listener) override;
+    virtual void exitRule(antlr4::tree::ParseTreeListener *listener) override;
+   
+  };
+
+  FuncVarsContext* funcVars();
 
   class  DeclarefunctionContext : public antlr4::ParserRuleContext {
   public:
