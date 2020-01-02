@@ -32,6 +32,15 @@ public:
   virtual void enterIfStatement(WenyanParser::IfStatementContext *ctx) = 0;
   virtual void exitIfStatement(WenyanParser::IfStatementContext *ctx) = 0;
 
+  virtual void enterIfStartState(WenyanParser::IfStartStateContext *ctx) = 0;
+  virtual void exitIfStartState(WenyanParser::IfStartStateContext *ctx) = 0;
+
+  virtual void enterIfThenState(WenyanParser::IfThenStateContext *ctx) = 0;
+  virtual void exitIfThenState(WenyanParser::IfThenStateContext *ctx) = 0;
+
+  virtual void enterIfElseState(WenyanParser::IfElseStateContext *ctx) = 0;
+  virtual void exitIfElseState(WenyanParser::IfElseStateContext *ctx) = 0;
+
   virtual void enterForStatement(WenyanParser::ForStatementContext *ctx) = 0;
   virtual void exitForStatement(WenyanParser::ForStatementContext *ctx) = 0;
 

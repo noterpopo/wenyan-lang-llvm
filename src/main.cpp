@@ -149,21 +149,56 @@ public:
     void enterIfStatement(WenyanParser::IfStatementContext *context) override {
         WenyanBaseListener::enterIfStatement(context);
         std::cout<<"enterIf"<<std::endl;
+
+        Function *theFunction = builder.GetInsertBlock()->getParent();
+        context->thenBB = BasicBlock::Create(theLLVMContext,"then",theFunction);
+        context->elseBB = BasicBlock::Create(theLLVMContext,"else");
+        context->mergeBB = BasicBlock::Create(theLLVMContext,"ifcont");
+        WenyanParser::IfStartStateContext *startCtx = context->getRuleContext<WenyanParser::IfStartStateContext>(0);
+        startCtx->thenBB = context->thenBB;
+        startCtx->elseBB = context->elseBB;
+        startCtx->mergeBB = context->mergeBB;
+        WenyanParser::IfThenStateContext *thenCtx = context->getRuleContext<WenyanParser::IfThenStateContext>(0);
+        thenCtx->thenBB = context->thenBB;
+        thenCtx->elseBB = context->elseBB;
+        thenCtx->mergeBB = context->mergeBB;
+        WenyanParser::IfElseStateContext *elseCtx = context->getRuleContext<WenyanParser::IfElseStateContext>(0);
+        elseCtx->thenBB = context->thenBB;
+        elseCtx->elseBB = context->elseBB;
+        elseCtx->mergeBB = context->mergeBB;
+
+    }
+
+    void exitIfStartState(WenyanParser::IfStartStateContext *context) override {
+        WenyanBaseListener::exitIfStartState(context);
         Value *condV = context->expression()->value;
         if(!condV)
             return;
         condV = builder.CreateFCmpONE(condV,ConstantFP::get(theLLVMContext,APFloat(0.0)),"ifcond");
-        Function *theFunction = builder.GetInsertBlock()->getParent();
-        BasicBlock *thenBB = BasicBlock::Create(theLLVMContext,"then",theFunction);
-        BasicBlock *elseBB = BasicBlock::Create(theLLVMContext,"else");
-        BasicBlock *mergeBB = BasicBlock::Create(theLLVMContext,"ifcont");
-        builder.CreateCondBr(condV,thenBB,elseBB);
-        builder.SetInsertPoint(thenBB);
+        builder.CreateCondBr(condV,context->thenBB,context->elseBB);
+        builder.SetInsertPoint(context->thenBB);
+    }
 
+    void exitIfThenState(WenyanParser::IfThenStateContext *context) override {
+        Function *theFunction = builder.GetInsertBlock()->getParent();
+        builder.CreateBr(context->mergeBB);
+        theFunction->getBasicBlockList().push_back(context->elseBB);
+        builder.SetInsertPoint(context->elseBB);
+        context->value = context->block()->value;
+    }
+
+    void exitIfElseState(WenyanParser::IfElseStateContext *context) override {
+        Function *theFunction = builder.GetInsertBlock()->getParent();
+        builder.CreateBr(context->mergeBB);
+        theFunction->getBasicBlockList().push_back(context->mergeBB);
+        builder.SetInsertPoint(context->mergeBB);
+        context->value = context->block()->value;
     }
 
     void exitIfStatement(WenyanParser::IfStatementContext *context) override {
-
+        PHINode *pn = builder.CreatePHI(Type::getDoubleTy(theLLVMContext),2,"iftmp");
+        pn->addIncoming(context->ifThenState()->value,context->thenBB);
+        pn->addIncoming(context->ifElseState()->value,context->elseBB);
     }
 
     void enterForStatement(WenyanParser::ForStatementContext *context) override {

@@ -28,7 +28,10 @@ XiZhi : '昔之';
 ShiYi : '是矣';
 /*====================================================================================================================*/
 // $antlr-format alignColons trailing;
-ifStatement : If expression EndDeclare Return block Else Return block EndStatment?;
+ifStatement : ifStartState EndDeclare ifThenState ifElseState EndStatment?;
+ifStartState : If expression;
+ifThenState : Return block;
+ifElseState : Else Return block;
 If          : Ruo; // 若
 EndDeclare  : Zhe; // 者
 Else        : Ruo Fei; // 若非

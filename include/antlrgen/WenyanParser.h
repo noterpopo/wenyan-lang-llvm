@@ -38,10 +38,10 @@ public:
 
   enum {
     RuleProgram = 0, RuleBlock = 1, RuleStatement = 2, RuleExpression = 3, 
-    RuleAssignStatement = 4, RuleIfStatement = 5, RuleIfThenState = 6, RuleIfElseState = 7, 
-    RuleForStatement = 8, RuleVariable = 9, RuleApplyStatement = 10, RuleApplyFunction = 11, 
-    RuleDeclarefunction = 12, RuleVariables = 13, RuleDeclareNumber = 14, 
-    RuleNumber = 15, RuleDigits = 16
+    RuleAssignStatement = 4, RuleIfStatement = 5, RuleIfStartState = 6, 
+    RuleIfThenState = 7, RuleIfElseState = 8, RuleForStatement = 9, RuleVariable = 10, 
+    RuleApplyStatement = 11, RuleApplyFunction = 12, RuleDeclarefunction = 13, 
+    RuleVariables = 14, RuleDeclareNumber = 15, RuleNumber = 16, RuleDigits = 17
   };
 
   WenyanParser(antlr4::TokenStream *input);
@@ -60,6 +60,7 @@ public:
   class ExpressionContext;
   class AssignStatementContext;
   class IfStatementContext;
+  class IfStartStateContext;
   class IfThenStateContext;
   class IfElseStateContext;
   class ForStatementContext;
@@ -168,8 +169,7 @@ public:
   public:
     IfStatementContext(antlr4::ParserRuleContext *parent, size_t invokingState);
     virtual size_t getRuleIndex() const override;
-    antlr4::tree::TerminalNode *If();
-    ExpressionContext *expression();
+    IfStartStateContext *ifStartState();
     antlr4::tree::TerminalNode *EndDeclare();
     IfThenStateContext *ifThenState();
     IfElseStateContext *ifElseState();
@@ -185,6 +185,23 @@ public:
 
   IfStatementContext* ifStatement();
 
+  class  IfStartStateContext : public antlr4::ParserRuleContext {
+  public:
+    IfStartStateContext(antlr4::ParserRuleContext *parent, size_t invokingState);
+    virtual size_t getRuleIndex() const override;
+    antlr4::tree::TerminalNode *If();
+    ExpressionContext *expression();
+    BasicBlock *thenBB;
+    BasicBlock *elseBB;
+    BasicBlock *mergeBB;
+
+    virtual void enterRule(antlr4::tree::ParseTreeListener *listener) override;
+    virtual void exitRule(antlr4::tree::ParseTreeListener *listener) override;
+   
+  };
+
+  IfStartStateContext* ifStartState();
+
   class  IfThenStateContext : public antlr4::ParserRuleContext {
   public:
     IfThenStateContext(antlr4::ParserRuleContext *parent, size_t invokingState);
@@ -194,6 +211,7 @@ public:
     BasicBlock *thenBB;
     BasicBlock *elseBB;
     BasicBlock *mergeBB;
+    Value *value;
 
     virtual void enterRule(antlr4::tree::ParseTreeListener *listener) override;
     virtual void exitRule(antlr4::tree::ParseTreeListener *listener) override;
@@ -212,6 +230,7 @@ public:
     BasicBlock *thenBB;
     BasicBlock *elseBB;
     BasicBlock *mergeBB;
+    Value *value;
 
     virtual void enterRule(antlr4::tree::ParseTreeListener *listener) override;
     virtual void exitRule(antlr4::tree::ParseTreeListener *listener) override;

@@ -34,6 +34,15 @@ public:
   virtual void enterIfStatement(WenyanParser::IfStatementContext * /*ctx*/) override { }
   virtual void exitIfStatement(WenyanParser::IfStatementContext * /*ctx*/) override { }
 
+  virtual void enterIfStartState(WenyanParser::IfStartStateContext * /*ctx*/) override { }
+  virtual void exitIfStartState(WenyanParser::IfStartStateContext * /*ctx*/) override { }
+
+  virtual void enterIfThenState(WenyanParser::IfThenStateContext * /*ctx*/) override { }
+  virtual void exitIfThenState(WenyanParser::IfThenStateContext * /*ctx*/) override { }
+
+  virtual void enterIfElseState(WenyanParser::IfElseStateContext * /*ctx*/) override { }
+  virtual void exitIfElseState(WenyanParser::IfElseStateContext * /*ctx*/) override { }
+
   virtual void enterForStatement(WenyanParser::ForStatementContext * /*ctx*/) override { }
   virtual void exitForStatement(WenyanParser::ForStatementContext * /*ctx*/) override { }
 
