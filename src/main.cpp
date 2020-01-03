@@ -138,13 +138,20 @@ public:
                 verifyFunction(*context->theFunction);
                 fpm->run(*context->theFunction);
                 curCtx = GLOBAL;
-                return;
+            } else {
+                builder.CreateRet(ConstantFP::get(Type::getDoubleTy(theLLVMContext),0.0));
+                verifyFunction(*context->theFunction);
+                fpm->run(*context->theFunction);
+                curCtx = GLOBAL;
             }
-            builder.CreateRet(ConstantFP::get(Type::getDoubleTy(theLLVMContext),0.0));
-            verifyFunction(*context->theFunction);
-            fpm->run(*context->theFunction);
-            curCtx = GLOBAL;
-            context->theFunction->eraseFromParent();
+            auto h = jit->addModule(std::move(module));
+            initializeModuleAndpassManager();
+            auto exprSymbol = jit->findSymbol(std::to_string(anonFnNum-1));
+            assert(exprSymbol && "Function not found");
+            double (*fp)() = (decltype(fp))cantFail(exprSymbol.getAddress());
+            fprintf(stderr,"Evaluated to %f\n",fp());
+
+            jit->removeModule(h);
         }
         std::cout<<"exitStatement"<<std::endl;
     }
@@ -334,6 +341,8 @@ public:
             verifyFunction(*context->theFunction);
             fpm->run(*context->theFunction);
             curCtx = GLOBAL;
+            jit->addModule(std::move(module));
+            initializeModuleAndpassManager();
             return;
         }
         curCtx = GLOBAL;
