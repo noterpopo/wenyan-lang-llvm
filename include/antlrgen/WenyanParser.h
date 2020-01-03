@@ -117,6 +117,7 @@ public:
     AssignStatementContext *assignStatement();
     ExpressionContext *expression();
     Value *value;
+    Function *theFunction;
 
     virtual void enterRule(antlr4::tree::ParseTreeListener *listener) override;
     virtual void exitRule(antlr4::tree::ParseTreeListener *listener) override;

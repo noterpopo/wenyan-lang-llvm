@@ -1,3 +1,0 @@
-/Users/popo/CLionProjects/LLVMLan/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/Users/popo/CLionProjects/LLVMLan/cmake-build-debug/CMakeFiles/edit_cache.dir
-/Users/popo/CLionProjects/LLVMLan/cmake-build-debug/CMakeFiles/LLVMLan.dir

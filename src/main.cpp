@@ -32,6 +32,7 @@ static enum CtxType{
     BLOCK
 };
 static CtxType curCtx = GLOBAL;
+static int anonFnNum = 0;
 
 
 class PrototypeAST {
@@ -105,6 +106,21 @@ public:
         std::cout<<"exitBlock"<<std::endl;
     }
 
+    void enterStatement(WenyanParser::StatementContext *context) override {
+        WenyanBaseListener::enterStatement(context);
+        if(curCtx == GLOBAL){
+            std::string fnName = std::to_string(anonFnNum++);
+            auto proto = llvm::make_unique<PrototypeAST>(fnName,std::vector<std::string>());
+            functionProtos[fnName] = std::move(proto);
+            context->theFunction = getFunction(fnName);
+            if(!context->theFunction)
+                return;
+            BasicBlock *bb = BasicBlock::Create(theLLVMContext,"entry",context->theFunction);
+            builder.SetInsertPoint(bb);
+            curCtx = FUNCTION;
+        }
+    }
+
     void exitStatement(WenyanParser::StatementContext *context) override {
         WenyanBaseListener::enterStatement(context);
         if(context->declareNumber()){
@@ -115,6 +131,20 @@ public:
             context->value = context->assignStatement()->value;
         } else if(context->expression()){
             context->value = context->expression()->value;
+        }
+        if(getFunction(std::to_string(anonFnNum-1))){
+            if(Value *retVal = context->value){
+                builder.CreateRet(retVal);
+                verifyFunction(*context->theFunction);
+                fpm->run(*context->theFunction);
+                curCtx = GLOBAL;
+                return;
+            }
+            builder.CreateRet(ConstantFP::get(Type::getDoubleTy(theLLVMContext),0.0));
+            verifyFunction(*context->theFunction);
+            fpm->run(*context->theFunction);
+            curCtx = GLOBAL;
+            context->theFunction->eraseFromParent();
         }
         std::cout<<"exitStatement"<<std::endl;
     }
@@ -267,6 +297,8 @@ public:
         WenyanBaseListener::enterDeclarefunction(context);
         std::cout<<"enterDecfun"<<std::endl;
         // gen Proto
+        getFunction(std::to_string(anonFnNum-1))->eraseFromParent();
+        functionProtos.erase(std::to_string(anonFnNum-1));
         std::vector<std::string> argNames;
         if(context->variables()){
             std::vector<WenyanParser::VariableContext *> vars=context->variables()->variable();
