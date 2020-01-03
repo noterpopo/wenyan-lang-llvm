@@ -110,7 +110,7 @@ public:
         if(context->declareNumber()){
             context->value = context->declareNumber()->value;
         }else if(context->applyStatement()){
-            context->value = context->applyStatement()->value;
+            context->value = context->applyStatement()->applyFunction()->value;
         } else if(context->assignStatement()){
             context->value = context->assignStatement()->value;
         } else if(context->expression()){
@@ -250,7 +250,7 @@ public:
 
     void exitApplyFunction(WenyanParser::ApplyFunctionContext *context) override {
         WenyanBaseListener::enterApplyFunction(context);
-        std::cout<<"enterApplyFun"<<std::endl;
+        std::cout<<"exitApplyFun"<<std::endl;
         std::vector<Value *> argsV;
         for(int i =0;i<context->funcVars().size();++i){
             Value *v = context->funcVars()[i]->sn?context->funcVars()[i]->sn->value:context->funcVars()[i]->sv->value;
@@ -259,7 +259,8 @@ public:
         std::string callee;
         chineseConvertPy(context->fv->getText(),callee);
         Function *calleeF = getFunction(callee);
-        context->value = builder.CreateCall(calleeF,argsV,"calltmp");
+        Value *v = builder.CreateCall(calleeF,argsV,"calltmp");
+        context->value = v;
     }
 
     void enterDeclarefunction(WenyanParser::DeclarefunctionContext *context) override {
