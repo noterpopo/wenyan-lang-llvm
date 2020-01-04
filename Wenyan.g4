@@ -9,13 +9,13 @@ statement
     | declarefunction
     | ifStatement
     | forStatement
-    | applyStatement
     | assignStatement
     | returnStatement
     | expression;
 expression
     :OP (fn = number | fv = variable) YI3 (sn = number | sv = variable)
-    | (fn = number | fv = variable) (OP (sn =number | sv = variable))*;
+    | (fn = number | fv = variable) (OP (sn =number | sv = variable))*
+    | applyStatement;
 OP : Jia | Jian | Cheng | XiaoYu | Dengyu | Dayu;
 YI3: Yi3;
 fragment Jia : '加';

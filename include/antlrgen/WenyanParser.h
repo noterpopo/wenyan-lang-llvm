@@ -114,7 +114,6 @@ public:
     DeclarefunctionContext *declarefunction();
     IfStatementContext *ifStatement();
     ForStatementContext *forStatement();
-    ApplyStatementContext *applyStatement();
     AssignStatementContext *assignStatement();
     ReturnStatementContext *returnStatement();
     ExpressionContext *expression();
@@ -143,6 +142,7 @@ public:
     NumberContext* number(size_t i);
     std::vector<VariableContext *> variable();
     VariableContext* variable(size_t i);
+    ApplyStatementContext *applyStatement();
     Value *value;
 
     virtual void enterRule(antlr4::tree::ParseTreeListener *listener) override;

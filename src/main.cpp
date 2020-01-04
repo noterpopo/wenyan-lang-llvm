@@ -85,7 +85,6 @@ class TreeShapeListener : public WenyanBaseListener {
 public:
     void enterProgram(WenyanParser::ProgramContext *context) override {
         WenyanBaseListener::enterProgram(context);
-        std::cout<<"enterProgram"<<std::endl;
         InitializeNativeTarget();
         InitializeNativeTargetAsmPrinter();
         InitializeNativeTargetAsmParser();
@@ -93,16 +92,9 @@ public:
         initializeModuleAndpassManager();
     }
 
-    void exitProgram(WenyanParser::ProgramContext *context) override {
-        WenyanBaseListener::exitProgram(context);
-        module->print(errs(), nullptr);
-        std::cout<<"exitProgram"<<std::endl;
-    }
-
     void exitBlock(WenyanParser::BlockContext *context) override {
         WenyanBaseListener::exitBlock(context);
         context->value = context->statement().back()->value;
-        std::cout<<"exitBlock"<<std::endl;
     }
 
     void enterStatement(WenyanParser::StatementContext *context) override {
@@ -124,9 +116,7 @@ public:
         WenyanBaseListener::enterStatement(context);
         if(context->declareNumber()){
             context->value = context->declareNumber()->value;
-        }else if(context->applyStatement()){
-            context->value = context->applyStatement()->applyFunction()->value;
-        } else if(context->assignStatement()){
+        }else if(context->assignStatement()){
             context->value = context->assignStatement()->value;
         } else if(context->expression()){
             context->value = context->expression()->value;
@@ -145,7 +135,6 @@ public:
                 fpm->run(*context->theFunction);
                 curCtx = GLOBAL;
             }
-            module->print(errs(), nullptr);
             auto h = jit->addModule(std::move(module));
             initializeModuleAndpassManager();
             auto exprSymbol = jit->findSymbol(std::to_string(anonFnNum-1));
@@ -155,7 +144,6 @@ public:
 
             jit->removeModule(h);
         }
-        std::cout<<"exitStatement"<<std::endl;
     }
 
     void exitExpression(WenyanParser::ExpressionContext *context) override {
@@ -185,15 +173,16 @@ public:
                 lv = builder.CreateFCmpUEQ(lv,rv,"cmptmp");
             }
             context->value =  builder.CreateUIToFP(lv,Type::getDoubleTy(theLLVMContext),"booltmp");
+        }
+        else if(context->applyStatement()){
+            context->value = context->applyStatement()->applyFunction()->value;
         } else {
             context->value = context->fn?context->fn->value:context->fv->value;
         }
-        std::cout<<"exitExpr"<<std::endl;
     }
 
     void enterIfStatement(WenyanParser::IfStatementContext *context) override {
         WenyanBaseListener::enterIfStatement(context);
-        std::cout<<"enterIf"<<std::endl;
 
         Function *theFunction = builder.GetInsertBlock()->getParent();
         context->thenBB = BasicBlock::Create(theLLVMContext,"then",theFunction);
@@ -252,7 +241,6 @@ public:
 
     void enterForStatement(WenyanParser::ForStatementContext *context) override {
         WenyanBaseListener::enterForStatement(context);
-        std::cout<<"enterFor"<<std::endl;
         context->theFunction = builder.GetInsertBlock()->getParent();
         context->alloca = CreateEntryBlockAlloca(context->theFunction,"index");
         builder.CreateStore(ConstantFP::get(Type::getDoubleTy(theLLVMContext),0.0),context->alloca);
@@ -290,7 +278,6 @@ public:
 
     void enterVariable(WenyanParser::VariableContext *context) override {
         WenyanBaseListener::enterVariable(context);
-        std::cout<<"enterVariable"<<std::endl;
         std::string name;
         chineseConvertPy(context->getText(), name);
         Value *v = namedValues[name];
@@ -306,7 +293,6 @@ public:
 
     void exitApplyFunction(WenyanParser::ApplyFunctionContext *context) override {
         WenyanBaseListener::enterApplyFunction(context);
-        std::cout<<"exitApplyFun"<<std::endl;
         std::vector<Value *> argsV;
         for(int i =0;i<context->funcVars().size();++i){
             Value *v = context->funcVars()[i]->sn?context->funcVars()[i]->sn->value:context->funcVars()[i]->sv->value;
@@ -321,7 +307,6 @@ public:
 
     void enterDeclarefunction(WenyanParser::DeclarefunctionContext *context) override {
         WenyanBaseListener::enterDeclarefunction(context);
-        std::cout<<"enterDecfun"<<std::endl;
         // gen Proto
         getFunction(std::to_string(anonFnNum-1))->eraseFromParent();
         functionProtos.erase(std::to_string(anonFnNum-1));
@@ -356,7 +341,6 @@ public:
     void exitDeclarefunction(WenyanParser::DeclarefunctionContext *context) override {
         WenyanBaseListener::exitDeclarefunction(context);
         if(context->block()->statement().back()->returnStatement()){
-            module->print(errs(), nullptr);
             verifyFunction(*context->theFunction);
             fpm->run(*context->theFunction);
             curCtx = GLOBAL;
@@ -366,7 +350,6 @@ public:
         }
         if(Value *retVal = context->block()->value){
             builder.CreateRet(retVal);
-            module->print(errs(), nullptr);
             verifyFunction(*context->theFunction);
             fpm->run(*context->theFunction);
             curCtx = GLOBAL;
@@ -380,7 +363,6 @@ public:
 
     void exitDeclareNumber(WenyanParser::DeclareNumberContext *context) override {
         WenyanBaseListener::enterDeclareNumber(context);
-        std::cout<<"exitDecNum"<<std::endl;
         if(!getFunction(std::to_string(anonFnNum-1))){
             Function *theFunction = builder.GetInsertBlock()->getParent();
             for (unsigned i =0,e= context->variable().size();i!=e;++i){
@@ -411,13 +393,11 @@ public:
 
     void enterNumber(WenyanParser::NumberContext *context) override {
         WenyanBaseListener::enterNumber(context);
-        std::cout<<"enterNumber"<<std::endl;
         context->value = ConstantFP::get(Type::getDoubleTy(theLLVMContext),chineseNum2num(context->getText()));
     }
 
     void exitAssignStatement(WenyanParser::AssignStatementContext *context) override {
         WenyanBaseListener::enterAssignStatement(context);
-        std::cout<<"exitAssign"<<std::endl;
         std::string varName;
         chineseConvertPy(context->variable()->getText(),varName);
         Value *variable = namedValues[varName];
