@@ -21,7 +21,7 @@ class PrototypeAST;
 static LLVMContext theLLVMContext;
 static IRBuilder<> builder(theLLVMContext);
 static std::unique_ptr<Module> module;
-static std::unique_ptr<Module> globalVarModule  = llvm::make_unique<Module>("llvmGV",theLLVMContext);;
+static std::map<std::string,Value *> globalValues;
 static std::map<std::string,AllocaInst *> namedValues;
 static std::unique_ptr<legacy::FunctionPassManager> fpm;
 static std::unique_ptr<KaleidoscopeJIT> jit;
@@ -95,7 +95,6 @@ public:
 
     void exitProgram(WenyanParser::ProgramContext *context) override {
         WenyanBaseListener::exitProgram(context);
-        globalVarModule->print(errs(), nullptr);
         module->print(errs(), nullptr);
         std::cout<<"exitProgram"<<std::endl;
     }
@@ -144,6 +143,7 @@ public:
                 fpm->run(*context->theFunction);
                 curCtx = GLOBAL;
             }
+            module->print(errs(), nullptr);
             auto h = jit->addModule(std::move(module));
             initializeModuleAndpassManager();
             auto exprSymbol = jit->findSymbol(std::to_string(anonFnNum-1));
@@ -277,11 +277,13 @@ public:
         std::string name;
         chineseConvertPy(context->getText(), name);
         Value *v = namedValues[name];
-        if(!v){
+        if(v){
+            context->value = builder.CreateLoad(v,name.c_str());
             return;
         }
-        context->value = builder.CreateLoad(v,name.c_str());
-
+        auto fi = globalValues.find(name);
+        if(fi!=globalValues.end())
+            context->value = fi->second;
     }
 
 
@@ -352,7 +354,7 @@ public:
     void exitDeclareNumber(WenyanParser::DeclareNumberContext *context) override {
         WenyanBaseListener::enterDeclareNumber(context);
         std::cout<<"exitDecNum"<<std::endl;
-        if(curCtx == FUNCTION){
+        if(!getFunction(std::to_string(anonFnNum-1))){
             Function *theFunction = builder.GetInsertBlock()->getParent();
             for (unsigned i =0,e= context->variable().size();i!=e;++i){
                 std::string varName;
@@ -366,6 +368,16 @@ public:
                 namedValues[varName] = alloca;
             }
         } else {
+            Function *theFunction = builder.GetInsertBlock()->getParent();
+            for (unsigned i =0,e= context->variable().size();i!=e;++i){
+                std::string varName;
+                chineseConvertPy(context->variable()[i]->getText(),varName);
+                Value *initVal = context->expression()[i]->value;
+                if(!initVal){
+                    initVal = ConstantFP::get(theLLVMContext,APFloat(0.0));
+                }
+                globalValues[varName] = initVal;
+            }
             //TODO Global
         }
         context->value = context->expression()[0]->value;
