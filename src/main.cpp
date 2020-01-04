@@ -130,6 +130,8 @@ public:
             context->value = context->assignStatement()->value;
         } else if(context->expression()){
             context->value = context->expression()->value;
+        } else {
+            context->value = ConstantFP::get(Type::getDoubleTy(theLLVMContext),0.0);
         }
         if(getFunction(std::to_string(anonFnNum-1))){
             if(Value *retVal = context->value){
@@ -175,7 +177,13 @@ public:
         } else if (context->OP().size()) {
             Value *lv = context->fn?context->fn->value:context->fv->value;
             Value *rv = context->sn?context->sn->value:context->sv->value;
-            lv = builder.CreateFCmpULT(lv,rv,"cmptmp");
+            if(context->OP()[0]->getText() == "小于"|| context->OP()[0]->getText() == "小於"){
+                lv = builder.CreateFCmpULT(lv,rv,"cmptmp");
+            } else if (context->OP()[0]->getText() == "大于"|| context->OP()[0]->getText() == "大於"){
+                lv = builder.CreateFCmpUGT(lv,rv,"cmptmp");
+            } else if (context->OP()[0]->getText() == "等于"|| context->OP()[0]->getText() == "等於"){
+                lv = builder.CreateFCmpUEQ(lv,rv,"cmptmp");
+            }
             context->value =  builder.CreateUIToFP(lv,Type::getDoubleTy(theLLVMContext),"booltmp");
         } else {
             context->value = context->fn?context->fn->value:context->fv->value;
@@ -218,7 +226,9 @@ public:
 
     void exitIfThenState(WenyanParser::IfThenStateContext *context) override {
         Function *theFunction = builder.GetInsertBlock()->getParent();
-        builder.CreateBr(context->mergeBB);
+        if(!context->block()->statement().back()->returnStatement()){
+            builder.CreateBr(context->mergeBB);
+        }
         theFunction->getBasicBlockList().push_back(context->elseBB);
         builder.SetInsertPoint(context->elseBB);
         context->value = context->block()->value;
@@ -226,7 +236,9 @@ public:
 
     void exitIfElseState(WenyanParser::IfElseStateContext *context) override {
         Function *theFunction = builder.GetInsertBlock()->getParent();
-        builder.CreateBr(context->mergeBB);
+        if(!context->block()->statement().back()->returnStatement()){
+            builder.CreateBr(context->mergeBB);
+        }
         theFunction->getBasicBlockList().push_back(context->mergeBB);
         builder.SetInsertPoint(context->mergeBB);
         context->value = context->block()->value;
@@ -269,6 +281,11 @@ public:
             namedValues["index"] = oldVal;
         else
             namedValues.erase("index");
+    }
+
+    void exitReturnStatement(WenyanParser::ReturnStatementContext *context) override {
+        WenyanBaseListener::exitReturnStatement(context);
+        builder.CreateRet(context->expression()->value);
     }
 
     void enterVariable(WenyanParser::VariableContext *context) override {
@@ -338,8 +355,18 @@ public:
 
     void exitDeclarefunction(WenyanParser::DeclarefunctionContext *context) override {
         WenyanBaseListener::exitDeclarefunction(context);
+        if(context->block()->statement().back()->returnStatement()){
+            module->print(errs(), nullptr);
+            verifyFunction(*context->theFunction);
+            fpm->run(*context->theFunction);
+            curCtx = GLOBAL;
+            jit->addModule(std::move(module));
+            initializeModuleAndpassManager();
+            return;
+        }
         if(Value *retVal = context->block()->value){
             builder.CreateRet(retVal);
+            module->print(errs(), nullptr);
             verifyFunction(*context->theFunction);
             fpm->run(*context->theFunction);
             curCtx = GLOBAL;
@@ -378,7 +405,6 @@ public:
                 }
                 globalValues[varName] = initVal;
             }
-            //TODO Global
         }
         context->value = context->expression()[0]->value;
     }
@@ -391,11 +417,20 @@ public:
 
     void exitAssignStatement(WenyanParser::AssignStatementContext *context) override {
         WenyanBaseListener::enterAssignStatement(context);
-        std::cout<<"enterAssign"<<std::endl;
+        std::cout<<"exitAssign"<<std::endl;
         std::string varName;
         chineseConvertPy(context->variable()->getText(),varName);
         Value *variable = namedValues[varName];
-        if(context->expression()->value){
+        if(!variable){
+            if(globalValues[varName]){
+                globalValues[varName] = context->expression()->value;
+                context->value = context->expression()->value;
+                return;
+            } else {
+                return;
+            }
+        }
+        if(!context->expression()->value){
             fprintf(stderr,"expression value is null");
         }
         builder.CreateStore(context->expression()->value,variable);

@@ -28,6 +28,9 @@ public:
   virtual void enterExpression(WenyanParser::ExpressionContext * /*ctx*/) override { }
   virtual void exitExpression(WenyanParser::ExpressionContext * /*ctx*/) override { }
 
+  virtual void enterReturnStatement(WenyanParser::ReturnStatementContext * /*ctx*/) override { }
+  virtual void exitReturnStatement(WenyanParser::ReturnStatementContext * /*ctx*/) override { }
+
   virtual void enterAssignStatement(WenyanParser::AssignStatementContext * /*ctx*/) override { }
   virtual void exitAssignStatement(WenyanParser::AssignStatementContext * /*ctx*/) override { }
 

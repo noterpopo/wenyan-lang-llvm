@@ -11,17 +11,23 @@ statement
     | forStatement
     | applyStatement
     | assignStatement
+    | returnStatement
     | expression;
 expression
     :OP (fn = number | fv = variable) YI3 (sn = number | sv = variable)
     | (fn = number | fv = variable) (OP (sn =number | sv = variable))*;
-OP : Jia | Jian | Cheng | XiaoYu;
+OP : Jia | Jian | Cheng | XiaoYu | Dengyu | Dayu;
 YI3: Yi3;
 fragment Jia : '加';
 fragment Jian : '减';
 fragment Cheng : '乘';
 fragment XiaoYu : '小'Yu;
+fragment Dengyu : '等'Yu;
+fragment Dayu : '大'Yu;
 fragment Yi3   : '以';
+
+returnStatement: Return expression;
+Return      : Nai De; // 乃得
 
 assignStatement: XiZhi variable EndDeclare '今' expression ShiYi;
 XiZhi : '昔之';
@@ -30,12 +36,11 @@ ShiYi : '是矣';
 // $antlr-format alignColons trailing;
 ifStatement : ifStartState EndDeclare ifThenState ifElseState EndStatment?;
 ifStartState : If expression;
-ifThenState : Return block;
-ifElseState : Else Return block;
+ifThenState : block;
+ifElseState : Else block;
 If          : Ruo; // 若
 EndDeclare  : Zhe; // 者
 Else        : Ruo Fei; // 若非
-Return      : Nai De; // 乃得
 
 fragment Ruo : '若';
 fragment Fei : '非';
@@ -125,7 +130,7 @@ fragment Suo  : '所';
 fragment Wei  : '謂' | '谓';
 /*====================================================================================================================*/
 declareNumber
-    : DeclareDigit (ValueIs expression)+ (NameAs variable)+;
+    : DeclareDigit (ValueIs expression)* (NameAs variable)+;
 // $antlr-format alignColons trailing;
 DeclareDigit   : IHave IntegerDigitCN* Shu;// 吾有一数
 fragment Shu   : '數' | '数';

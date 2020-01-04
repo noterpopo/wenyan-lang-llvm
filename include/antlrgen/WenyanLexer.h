@@ -12,10 +12,10 @@
 class  WenyanLexer : public antlr4::Lexer {
 public:
   enum {
-    T__0 = 1, OP = 2, YI3 = 3, XiZhi = 4, ShiYi = 5, If = 6, EndDeclare = 7, 
-    Else = 8, Return = 9, ForStart = 10, ForStart2 = 11, ForEnd = 12, Variable = 13, 
-    Left = 14, Right = 15, Left4 = 16, Right4 = 17, Apply = 18, At = 19, 
-    The = 20, End = 21, FunctionStart = 22, FunctionEnd = 23, VarPref = 24, 
+    T__0 = 1, OP = 2, YI3 = 3, Return = 4, XiZhi = 5, ShiYi = 6, If = 7, 
+    EndDeclare = 8, Else = 9, ForStart = 10, ForStart2 = 11, ForEnd = 12, 
+    Variable = 13, Left = 14, Right = 15, Left4 = 16, Right4 = 17, Apply = 18, 
+    At = 19, The = 20, End = 21, FunctionStart = 22, FunctionEnd = 23, VarPref = 24, 
     VariableStart = 25, DeclareMethod = 26, ThisIs = 27, Is = 28, Said = 29, 
     MethodOf = 30, EndStatment = 31, IHave = 32, NameAs = 33, ValueIs = 34, 
     DeclareDigit = 35, IntegerDigit = 36, FloatDigit = 37, IntegerDigitCN = 38, 
